@@ -1,0 +1,8 @@
+{
+  "recipes": {
+    "name": "Bangers and Mash",
+    "ingredients": [1, 2, 3],
+    "time": 30
+  },
+  "ingredients": { "1": "Sausage", "2": "Mashed Potatoes", "3": "Gravy" }
+}

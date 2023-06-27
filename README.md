@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Into the West
+
+This project is a web app for tracking a Dungeons and Dragons campaign called Into the West. It primarily uses Google Firebase for server side functionality, and implements a React.JS-powered web client, written in TypeScript. Database management is handled through Firebase Realtime Database, and user authentication is handled through Firebase Email/Password Authentication. Autodeployment is handled by GitHub Actions.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+### Available Scripts
 
-### `npm start`
+In the project directory, you can run `npm start` to open the app in the development mode.
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if when edits are made, and lint errors are displayed in the console..
 
-### `npm test`
+### Environment Variables
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In order to run the code locally, enviornment variables need to be configured or the app will fail to execute. These are stored in a file called `.env` stored at the project's root directory (the same as `package.json`, `.gitignore`, `README.md` etc). The following snippet is required:
 
-### `npm run build`
+```
+REACT_APP_FIREBASE_API_KEY={apiKey}
+REACT_APP_FIREBASE_AUTH_DOMAIN={authDomain}
+REACT_APP_FIREBASE_DATABASE_URL={databaseURL}
+REACT_APP_FIREBASE_PROJECT_ID={projectId}
+REACT_APP_FIREBASE_STORAGE_BUCKET={storageBucket}
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID={messagingSenderId}
+REACT_APP_FIREBASE_APP_ID={appId}
+REACT_APP_DISCORD_WEBHOOK_URL={found in Discord Server}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Firebase values for the above snippet can be found in Project Settings in the [Firebase Console](https://console.firebase.google.com/project/into-the-west-5869d/settings/general/web:ZmZjN2FiYzYtZWU2Ni00NDk1LTg3OWMtNTQ1OTczOWEwNmUz/), and the Discord Webhook can be found in the Discord Server.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Continuous Development and Integration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Pull requests and merges to the main branch trigger various workflows using GitHub Actions. In future, the intention is to have unit tests run on every pull request, as well as UI tests to run against the test website (see below)
 
-### `npm run eject`
+### Pull Request Builds - Preview Release
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The creation of a pull request triggers a GitHub action that attempts to build and deploy a preview of that branch to its own website for preview.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In future, UI tests will be run against this website, and unit tests will be run against the code, as well as build validation, which must all succeed before a merge can be completed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Merge to Main - Production Release
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+A merge to the main branch automatically triggers a production release. Currently, there is no automated testing, but this is intended to be improved in the future, in order to reduce any regressions.
