@@ -8,6 +8,10 @@ export type Action =
   | {
       type: "SetAuthUser";
       authUser: DefaultRootState["authUser"];
+    }
+  | {
+      type: "SetRecipes";
+      recipes: DefaultRootState["recipes"];
     };
 
 /** Initial application state */
@@ -17,6 +21,8 @@ export const initialState: DefaultRootState = {
     window.matchMedia("(prefers-color-scheme: dark)").matches,
 
   authUser: null,
+
+  recipes: { isLoading: true },
 };
 
 /**
@@ -35,12 +41,21 @@ export const rootReducer: Reducer<DefaultRootState, Action> = (
         // Action for toggling Dark Mode
         case "SetDarkMode": {
           draftState.darkMode = action.darkMode;
+
           break;
         }
 
         // Action for setting the Logged-in User
         case "SetAuthUser": {
           draftState.authUser = action.authUser;
+
+          break;
+        }
+
+        // Action for setting the Recipes
+        case "SetRecipes": {
+          draftState.recipes = action.recipes;
+
           break;
         }
       }

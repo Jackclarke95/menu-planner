@@ -1,8 +1,17 @@
 {
   "recipes": {
-    "name": "Bangers and Mash",
-    "ingredients": [1, 2, 3],
-    "time": 30
+    "-NYz7lf5m7Cqq5eGC5QT": {
+      "name": "Bangers and Mash",
+      "ingredients": [1, 2, 3],
+      "time": 30
+    }
   },
-  "ingredients": { "1": "Sausage", "2": "Mashed Potatoes", "3": "Gravy" }
+  "ingredients": { "1": "Sausage", "2": "Mashed Potatoes", "3": "Gravy" },
+  "diets": {
+    "1": "Vegetarian",
+    "2": "Vegan",
+    "3": "Gluten Free",
+    "4": "Keto",
+    "5": "Paleo"
+  }
 }

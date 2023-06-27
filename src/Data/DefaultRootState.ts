@@ -1,6 +1,7 @@
 import { User } from "firebase/auth";
 import { Dispatch } from "react";
 import { Action } from "./Reducers";
+import { Recipe } from "./Types";
 
 /** Interface detailing the Default Root State */
 declare module "react-redux" {
@@ -11,6 +12,8 @@ declare module "react-redux" {
 
     /** The currently logged-in User as a Firebase User */
     authUser: User | null;
+
+    recipes: { isLoading: true } | { isLoading: false; data: Recipe[] };
   }
 
   // Declare dispatcher to take our root provider's action type

@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { getDatabase } from "firebase/database";
+import { getDatabase, onValue, ref } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoginPage } from "./Components/LoginPage";
+import Header from "./Components/Header";
+import DataService from "./Helpers/DataService";
+import Recipes from "./Components/Recipes";
+import Home from "./Components/Home";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
@@ -27,6 +32,25 @@ const App = () => {
 
   const authUser = useSelector((state) => state.authUser);
 
+  onValue(ref(db, "recipes"), (snapshot) => {
+    const recipeData = snapshot.val();
+
+    const recipes = Object.keys(recipeData).map((key) => {
+      const recipe = recipeData[key];
+      recipe.id = key;
+
+      return recipe;
+    });
+
+    dispatch({
+      type: "SetRecipes",
+      recipes: {
+        isLoading: false,
+        data: recipes,
+      },
+    });
+  });
+
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       dispatch({
@@ -36,19 +60,21 @@ const App = () => {
     }
   });
 
+  console.log(authUser);
+
   return (
     <React.Fragment>
       {authUser ? (
         <BrowserRouter>
+          <Header />
           <Routes>
-            <Route path="/" element={<div>Home</div>} />
+            <Route path="/" element={<Home />} />
             <Route path="/account" element={<div>Account</div>} />
+            <Route path="/recipes" element={<Recipes />} />
           </Routes>
         </BrowserRouter>
       ) : (
-        <>
-          <div>Log in to see more</div>
-        </>
+        <LoginPage />
       )}
     </React.Fragment>
   );
