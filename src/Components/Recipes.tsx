@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-export default () => {
+const Recipes = () => {
   const recipes = useSelector((state) => state.recipes);
 
   console.log(recipes);
@@ -20,3 +20,5 @@ export default () => {
     </div>
   );
 };
+
+export default Recipes;

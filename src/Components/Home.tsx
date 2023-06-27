@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Home.scss";
 
-export default () => {
+const Home = () => {
   return (
     <div>
       <h2>Home</h2>
@@ -13,3 +13,5 @@ export default () => {
     </div>
   );
 };
+
+export default Home;

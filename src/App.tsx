@@ -6,9 +6,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LoginPage } from "./Components/LoginPage";
+import LoginPage from "./Components/LoginPage";
 import Header from "./Components/Header";
-import DataService from "./Helpers/DataService";
 import Recipes from "./Components/Recipes";
 import Home from "./Components/Home";
 

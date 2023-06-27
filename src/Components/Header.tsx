@@ -1,7 +1,7 @@
 import { logOut } from "./LoginPage";
 import "./Header.scss";
 
-export default () => {
+const Header = () => {
   return (
     <div className="header-container">
       <h1>Menu Planner</h1>
@@ -9,3 +9,5 @@ export default () => {
     </div>
   );
 };
+
+export default Header;

@@ -15,7 +15,7 @@ export const logOut = async () => {
   }
 };
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -31,3 +31,5 @@ export const LoginPage = () => {
     </div>
   );
 };
+
+export default LoginPage;
