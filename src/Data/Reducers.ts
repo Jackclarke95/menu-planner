@@ -28,7 +28,7 @@ export const rootReducer: Reducer<DefaultRootState, Action> = (
   currentState,
   action
 ): DefaultRootState =>
-  produce<DefaultRootState, Draft<DefaultRootState>, void>(
+  produce<DefaultRootState, Draft<DefaultRootState>>(
     currentState,
     (draftState) => {
       switch (action.type) {
