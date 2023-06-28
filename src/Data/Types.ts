@@ -3,23 +3,16 @@ export type Recipe = {
   name: string;
   description: string;
   ingredients: {
-    id: string;
+    name: string;
     quantity: number | string;
-    substitutes: { id: string; quantity?: number | string }[];
+    substitutes?: { name: string; quantity?: number | string }[];
   }[];
   time: number;
   image?: string;
 };
 
 export type Ingredient = {
-  id: string;
   name: string;
-};
-
-export type RecipeIngredient = {
-  id: string;
-  recipeId: string;
-  ingredientId: string;
-  quantity: number;
-  substitute?: { id: string; quantity: number };
+  quantity: number | string;
+  substitutes?: Ingredient[];
 };

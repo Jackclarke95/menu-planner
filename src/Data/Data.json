@@ -1,81 +1,48 @@
 {
-  "ingredients": {
-    "-NZ0nAX-Zq28KuqZKxSe": {
-      "name": "Red Onion"
-    },
-    "-NZ0nKHnfog3-jH1b1Mi": {
-      "name": "Green Beans"
-    },
-    "-NZ0nLrc9lU79FPlDUWf": {
-      "name": "Basmati Rice"
-    },
-    "-NZ0vDlqZ_Kdt_vdqXzz": {
-      "name": "Sweet Potato (Medium)"
-    },
-    "-NZ0vDqy1iE9HIj9mwL5": {
-      "name": "Agave Nectar"
-    },
-    "-NZ0vDtabjaJ9rSPYUkS": {
-      "name": "Soy Sauce"
-    },
-    "-NZ0vDvnSUVS8Em2AOgR": {
-      "name": "Toasted Sesame Seeds"
-    },
-    "-NZ0vDyEyWfNj8RYcVYQ": {
-      "name": "Cornflour"
-    },
-    "-NZ0vE-SAz9KzO6U-1AQ": {
-      "name": "Meat-free Chicken Pieces"
-    },
-    "-NZ0vtXbiYw8XDAS6g0Z": {
-      "name": "Honey"
-    }
-  },
   "recipes": {
     "-NYz7lf5m7Cqq5eGC5QT": {
       "ingredients": [
         {
-          "id": "-NZ0nAX-Zq28KuqZKxSe",
+          "name": "Red Onion",
           "quantity": 1
         },
         {
-          "id": "-NZ0nKHnfog3-jH1b1Mi",
+          "name": "Green Beans",
           "quantity": "80g"
         },
         {
-          "id": "-NZ0nLrc9lU79FPlDUWf",
+          "name": "Basmati Rice",
           "quantity": "100g"
         },
         {
-          "id": "-NZ0vDlqZ_Kdt_vdqXzz",
+          "name": "Sweet Potato (Medium)",
           "quantity": 1
         },
         {
-          "id": "-NZ0vDqy1iE9HIj9mwL5",
+          "name": "Agave Nectar",
           "quantity": "25g",
-          "substitute": {
-            "id": "-NZ0vtXbiYw8XDAS6g0Z"
-          }
+          "substitutes": [{ "name": "Honey" }]
         },
         {
-          "id": "-NZ0vDtabjaJ9rSPYUkS",
+          "name": "Soy Sauce",
           "quantity": "15ml"
         },
         {
-          "id": "-NZ0vDvnSUVS8Em2AOgR",
+          "name": "Toasted Sesame Seeds",
           "quantity": "5g"
         },
         {
-          "id": "-NZ0vDyEyWfNj8RYcVYQ",
+          "name": "Cornflour",
           "quantity": "3g"
         },
         {
-          "id": "-NZ0vE-SAz9KzO6U-1AQ",
+          "name": "Meat-Free Chicken Pieces",
           "quantity": "165g"
         }
       ],
+      "diet": "Vegetarian",
       "name": "Meat-Free Teriyaki Tray Bake",
-      "description": "This one-pan plant-based tray bake is packed with umamiu flavour! While your veggies roat in the oven, you'll stir up a sticky glaze to drizzle over your meat-free chicken bites, veggies, and rice. Yum!",
+      "description": "This one-pan plant-based tray bake is packed with umami flavour! While your veggies roast in the oven, you'll stir up a sticky glaze to drizzle over your meat-free chicken bites, veggies, and rice. Yum!",
       "time": 35,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/2909_Meat-Free-Chicken-Teriyaki-Tray-Bake-2174-1596470339623-x1500.jpg"
     }

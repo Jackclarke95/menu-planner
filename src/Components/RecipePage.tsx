@@ -1,32 +1,25 @@
-import { Depths, Image, ImageFit, Stack, Text } from "@fluentui/react";
+import {
+  Depths,
+  Image,
+  ImageFit,
+  Separator,
+  Stack,
+  Text,
+} from "@fluentui/react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Ingredient } from "../Data/Types";
+import { Icon } from "@fluentui/react/lib/Icon";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
 
   const recipes = useSelector((state) => state.recipes);
-  const allIngredients = useSelector((state) => state.ingredients);
 
   const recipe = recipes.isLoading
     ? undefined
     : recipes.data.find((recipe) => recipe.id === recipeId);
-
-  const recipeIngredients = allIngredients.isLoading
-    ? []
-    : allIngredients.data
-        .filter((ingredient) =>
-          recipe?.ingredients
-            ?.map((ingredient) => ingredient.id)
-            .includes(ingredient.id)
-        )
-        .map((ingredient) => ({
-          id: ingredient.id,
-          name: ingredient.name,
-          quantity: recipe?.ingredients.find(
-            (recipeIngredient) => recipeIngredient.id === ingredient.id
-          )?.quantity,
-        }));
 
   return (
     <Stack
@@ -41,27 +34,65 @@ const RecipePage = () => {
         imageFit={ImageFit.cover}
       />
       <Text>{recipe?.description}</Text>
-      <Text variant="large">Ingredients</Text>
+      <Separator styles={{ root: { fontSize: "larger" } }}>
+        Ingredients
+      </Separator>
       <Stack
         tokens={{ childrenGap: 5 }}
         styles={{ root: { padding: 5, overflowY: "auto" } }}
       >
-        {recipeIngredients.map((ingredient) => {
-          console.log({ ingredient });
-
-          return (
-            <Stack
-              key={ingredient.id}
-              horizontal
-              horizontalAlign="space-between"
-              styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
-            >
-              <Text>{ingredient.name}</Text>
-              <Text>Quantity: {ingredient.quantity}</Text>
-            </Stack>
-          );
+        {recipe?.ingredients.map((ingredient, index) => {
+          return <IngredientsCard ingredient={ingredient} index={index} />;
         })}
       </Stack>
+    </Stack>
+  );
+};
+
+const IngredientsCard = ({ ingredient, index }) => {
+  const [expandSubstitutes, setExpandSubstitutes] = useState<boolean>(false);
+
+  const toggleExpandSubstitutes = () => {
+    setExpandSubstitutes(!expandSubstitutes);
+  };
+
+  return (
+    <Stack
+      key={index}
+      onClick={toggleExpandSubstitutes}
+      styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
+      tokens={{ childrenGap: 5 }}
+    >
+      <Stack horizontal horizontalAlign="space-between">
+        <Text>
+          {ingredient.name}
+          {ingredient.substitutes && ingredient.substitutes.length > 0 && (
+            <Icon
+              iconName="Switch"
+              styles={{ root: { fontSize: "smaller", paddingLeft: 5 } }}
+            />
+          )}
+        </Text>
+        <Text>Quantity: {ingredient.quantity}</Text>
+      </Stack>
+      {ingredient.substitutes &&
+        ingredient.substitutes.length > 0 &&
+        expandSubstitutes && (
+          <>
+            {ingredient.substitutes.map(
+              (substitute: Ingredient, index: number) => {
+                return (
+                  <Stack horizontal horizontalAlign="space-between" key={index}>
+                    <Text variant="small">{substitute.name}</Text>
+                    <Text variant="small">
+                      Quantity: {substitute.quantity ?? ingredient.quantity}
+                    </Text>
+                  </Stack>
+                );
+              }
+            )}
+          </>
+        )}
     </Stack>
   );
 };

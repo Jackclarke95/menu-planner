@@ -51,25 +51,6 @@ const App = () => {
     });
   });
 
-  onValue(ref(db, "ingredients"), (snapshot) => {
-    const ingredientData = snapshot.val();
-
-    const ingredients = Object.keys(ingredientData).map((key) => {
-      const ingredient = ingredientData[key];
-      ingredient.id = key;
-
-      return ingredient;
-    });
-
-    dispatch({
-      type: "SetIngredients",
-      ingredients: {
-        isLoading: false,
-        data: ingredients,
-      },
-    });
-  });
-
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       dispatch({
