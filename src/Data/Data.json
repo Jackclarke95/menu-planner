@@ -40,11 +40,292 @@
           "quantity": "165g"
         }
       ],
-      "diet": "Vegetarian",
       "name": "Meat-Free Teriyaki Tray Bake",
       "description": "This one-pan plant-based tray bake is packed with umami flavour! While your veggies roast in the oven, you'll stir up a sticky glaze to drizzle over your meat-free chicken bites, veggies, and rice. Yum!",
       "time": 35,
-      "image": "https://production-media.gousto.co.uk/cms/mood-image/2909_Meat-Free-Chicken-Teriyaki-Tray-Bake-2174-1596470339623-x1500.jpg"
+      "image": "https://production-media.gousto.co.uk/cms/mood-image/2909_Meat-Free-Chicken-Teriyaki-Tray-Bake-2174-1596470339623-x1500.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2namBIvVcFltyjZWc": {
+      "ingredients": [
+        { "name": "Soy Sauce", "quantity": "8ml" },
+        { "name": "Spring Onion", "quantity": 1 },
+        { "name": "Spinach", "quantity": "80g" },
+        { "name": "Chilli Jam", "quantity": "40g" },
+        { "name": "Toasted Sesame Oil", "quantity": "15ml" },
+        { "name": "Crispy Onions", "quantity": "15g" },
+        { "name": "Garlic & Ginger Paste", "quantity": "15g" },
+        { "name": "Meat-Free Chicken Pieces", "quantity": "165g" },
+        { "name": "Udon Noodles", "quantity": "200g" }
+      ],
+      "name": "Sweet Chilli & Sesame Meat-Free Chicken Udon",
+      "description": "This quick, umami-rich udon is tossed together in 10 with some of our chefs' favourite flavours, like sticky and sweet chilli jam, soy sauce and sesame oil. Top with crispy onions to serve.",
+      "time": 10,
+      "image": "https://production-media.gousto.co.uk/cms/mood-image/3225_Sweet-Chilli-_-Sesame-Meat-Free-Chicken-Udon-2030-1614686615651-x1500.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2sSFYA6Gcup5R-_Eq": {
+      "ingredients": [
+        { "name": "Lemon", "quantity": 1 },
+        { "name": "Garlic Cloves", "quantity": 2 },
+        { "name": "Green Beans", "quantity": "80g" },
+        { "name": "Tenderstem Broccoli", "quantity": "80g" },
+        { "name": "Spinach", "quantity": "80g" },
+        { "name": "Orzo Pasta", "quantity": "150g" },
+        { "name": "Italian Hard Cheese", "quantity": "15g" },
+        { "name": "Pine Nuts", "quantity": "20g" },
+        { "name": "Vegetable Stock", "quantity": 1 },
+        { "name": "Butter", "quantity": "30g" }
+      ],
+      "name": "Orzo Primavera with Tenderstem, Spinach & Green Beans",
+      "description": "This simple one-pan dish is packed with vegetables. You'll stir green beans, spinach and Tenderstem broccoli into a light, lemony sauce with orzo, and garnish with pine nut and seed mix to serve. Primo!",
+      "time": 25,
+      "image": "https://production-media.gousto.co.uk/cms/mood-image/1504_Orzo-Primavera-With-Tenderstem-Spinach--Green-Beans-1265-1593512701671-x1500.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2sSxQrxbBTpTnk2Ya": {
+      "ingredients": [
+        { "name": "Brown Onion", "quantity": 1 },
+        { "name": "Garlic Cloves", "quantity": 2 },
+        { "name": "Soy Sauce", "quantity": "8ml" },
+        { "name": "Italian Hard Cheese", "quantity": "20g" },
+        { "name": "Dried Oregano", "quantity": "1tsp" },
+        { "name": "Parsley", "quantity": "5g" },
+        { "name": "Dried Basil", "quantity": "1tsp" },
+        { "name": "Carrot", "quantity": 1 },
+        { "name": "Chopped Tomatoes", "quantity": "210g" },
+        { "name": "Tomato Paste", "quantity": "16g" },
+        { "name": "Meat-Free Mince", "quantity": "200g" },
+        { "name": "Vegetable Stock", "quantity": 1 },
+        { "name": "Spaghetti", "quantity": "190g" }
+      ],
+      "name": "Simple Perfect Meat-Free Mince  Spag Bol",
+      "description": "Brilliant for weeknights and slurp-tastic for adults and children alike. Rustle up a simply perfect spag bol with a rich meat-free mince sauce topped with lashings of melty cheddar and basil. Dinner is served!",
+      "time": 25,
+      "image": "https://production-media.gousto.co.uk/cms/mood-image/R-2523-2-Simply-Perfect-Meat-Free-Spag-Bol-2661-1586948844406-x200.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2sTce6xa-V9IgqNy6": {
+      "ingredients": [
+        { "name": "Lemon", "quantity": 1 },
+        { "name": "Garlic Cloves", "quantity": 2 },
+        { "name": "Courgette", "quantity": 1 },
+        { "name": "Mint", "quantity": "5g" },
+        { "name": "Pumpkin Seeds", "quantity": "15g" },
+        {
+          "name": "Linguine",
+          "quantity": "190g",
+          "substitutes": [{ "name": "Spaghetti" }]
+        },
+        { "name": "Goats' Cheese", "quantity": "75g" },
+        { "name": "Vegetable Stock", "quantity": 1 }
+      ],
+      "name": "Courgette & Goats' Cheese Linguine",
+      "description": "This speedy supper is perfect for a relaxed evening. You'll stir up a bright, zesty garlic and courgette sauce before tossing in linguine and creamy goats' cheese to finish. Buon appetito!",
+      "time": 20,
+      "image": "https://production-media.gousto.co.uk/cms/recipe-step-image/1573.-step-7-1592925242278-x1500.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2wRkKZTuEf1YigkzQ": {
+      "ingredients": [
+        { "name": "Pineapple (Chunks)", "quantity": "227g" },
+        { "name": "Pepper (Bell)", "quantity": 1 },
+        { "name": "Garlic Cloves", "quantity": 2 },
+        { "name": "Ginger (Root)", "quantity": "15g" },
+        { "name": "Soy Sauce", "quantity": "8ml" },
+        { "name": "Spring Onion", "quantity": 3 },
+        { "name": "Cornflour", "quantity": "4g" },
+        { "name": "Basmati Rice", "quantity": "130g" },
+        { "name": "Tofu (Plain)", "quantity": "280g" },
+        { "name": "Chilli Jam", "quantity": 1 },
+        { "name": "Soy Sauce", "quantity": "30ml" },
+        { "name": "Rice Vinegar", "quantity": "15ml" },
+        { "name": "Toasted Sesame Seeds", "quantity": "5g" },
+        { "name": "Tomato Ketchup", "quantity": "10ml" }
+      ],
+      "name": "Sweet & Sour Crispy Tofu With Rice",
+      "description": "Whip up a plant-based twist on a takeaway classic. You'll crisp tofu in a pan with spring onion and pepper, before smothering in a sticky sauce and serving with rice and sesame seeds. Wok on!",
+      "time": 35,
+      "image": "https://production-media.gousto.co.uk/cms/mood-image/2308_Sticky-Sweet-n-Sour-Glazed-Tofu--7032-1610454494730-x1500.jpg",
+      "meal": ["Dinner"]
+    },
+    "-NZ2wSEE4fLzt4GIxaem": {
+      "ingredients": [
+        { "name": "Egg", "quantity": 6 },
+        { "name": "Bread", "quantity": "4 slices" },
+        { "name": "Milk", "quantity": "30ml" },
+        { "name": "Butter", "quantity": "60g" }
+      ],
+      "name": "Scrambled Egg on Toast",
+      "description": "Jack's famous scrambled egg on toast!",
+      "time": 15,
+      "meal": ["Breakfast", "Lunch"]
+    },
+    "-NZ2wSjyDlThR5Sdmn6Y": {
+      "ingredients": [
+        { "name": "Egg", "quantity": 4 },
+        { "name": "Bread", "quantity": "4 slices" }
+      ],
+      "name": "Boiled Egg and Soldiers",
+      "description": "Jack's famous Egg and Soldiers!",
+      "time": 5,
+      "meal": ["Breakfast"]
+    },
+    "-NZ2wTJWGdumSzPT2OCV": {
+      "ingredients": [
+        { "name": "Egg", "quantity": 5 },
+        { "name": "Bread", "quantity": "4 slices" },
+        { "name": "Hash Brown", "quantity": 16 },
+        { "name": "Ketchup", "quantity": "30ml" }
+      ],
+      "name": "Hash Brown & Egg Sandwich",
+      "description": "Jack's famous hash brown and egg sandwich, oozing with ketchup!",
+      "time": 30,
+      "meal": ["Breakfast", "Lunch"]
+    },
+    "-NZ2wTjuS3mullTBNpIU": {
+      "ingredients": [
+        {
+          "name": "Bread (White)",
+          "quantity": "6 slices",
+          "substitutes": [{ "name": "Bread (50/50)" }]
+        },
+        { "name": "Meat-Free Chicken Pieces", "quantity": "165g" },
+        { "name": "Brie", "quantity": "1 block" },
+        { "name": "Cranberry Sauce", "quantity": "30g" },
+        { "name": "Mayonnaise", "quantity": "60g" },
+        { "name": "Lettuce", "quantity": "6 leaves" },
+        { "name": "Cucumber", "quantity": "1/4 cucumber" }
+      ],
+      "name": "Meat-Free Chicken, Brie & Cranberry Mayo Club Sandwich",
+      "description": "Emmie's favourite club sandwich, dripping with cranberry mayonnaise!",
+      "time": 20,
+      "meal": ["Lunch"]
+    },
+    "-NZ2wUKWz7e5fnxQlDU0": {
+      "ingredients": [
+        { "name": "Soup", "quantity": "1 can" },
+        { "name": "Bread (Roll)", "quantity": 4 }
+      ],
+      "name": "Soup",
+      "description": "Simple, quick, and easy soup!",
+      "time": 5,
+      "meal": ["Lunch"]
+    },
+    "-NZ2wUlSR53G9EoHQsfY": {
+      "ingredients": [
+        {
+          "name": "Meat-Free Chicken Slices",
+          "quantity": "8 slices",
+          "alternatives": [
+            { "name": "Meat-Free Turkey Slices" },
+            { "name": "Meat-Free Ham Slices" },
+            { "name": "Meat-Free Salami Slices" }
+          ]
+        },
+        { "name": "Tortilla Wraps", "quantity": 2 },
+        { "name": "Lettuce", "quantity": "4 leaves" },
+        { "name": "Cucumber", "quantity": "1/4 cucumber" },
+        { "name": "Tomato", "quantity": "1 tomato" },
+        { "name": "Mayonnaise", "quantity": "60g" }
+      ],
+      "name": "Meat-Free Slice, Cucumber, Tomato, Lettuce & Mayo Wraps",
+      "description": "Simple, yet tasty plant-based wraps!",
+      "time": 10,
+      "meal": ["Lunch"]
+    },
+    "-NZ2wVKDFlugxKOQdyqa": {
+      "ingredients": [
+        { "name": "Porridge Oats", "quantity": "250ml" },
+        { "name": "Milk (Almond)", "quantity": "250ml" },
+        { "name": "Honey", "quantity": "30g" },
+        { "name": "Cinnamon (Ground)", "quantity": "1tsp" }
+      ],
+      "name": "Porridge",
+      "description": "An easy, tasty, and healthy breakfast to start the day!",
+      "time": 10,
+      "meal": ["Breakfast"]
+    },
+    "-NZ2wVpjsrUc9NcX5SO4": {
+      "ingredients": [
+        { "name": "Bread", "quantity": "4 slices" },
+        {
+          "name": "Peanut Butter",
+          "quantity": "60g",
+          "substitutes": [{ "name": "Nutella" }]
+        }
+      ],
+      "name": "Toast",
+      "description": "Simple, quick, and easy toast!",
+      "time": 5,
+      "meal": ["Breakfast"]
+    },
+    "-NZ2wWJLDu7zO6nCjd2J": {
+      "ingredients": [
+        { "name": "Bread", "quantity": "4 slices" },
+        { "name": "Avocado", "quantity": 2 },
+        { "name": "Egg", "quantity": 4 },
+        { "name": "Chilli Flakes", "quantity": "1/2 tsp" }
+      ],
+      "name": "Avocado and Fried Egg on Toast",
+      "description": "A mildly spicy take on the classic avocado and egg on toast!",
+      "time": 15,
+      "meal": ["Breakfast"]
+    },
+    "-NZ2wXC3vNC-0LMNjla2": {
+      "ingredients": [
+        { "name": "Tortellini", "quantity": "2 packs" },
+        { "name": "Tomato and Mascarpone Sauce", "quantity": "350g" }
+      ],
+      "name": "Tortellini",
+      "description": "Our favourite easy dinner for when speed is of the essence!",
+      "time": 5,
+      "meal": ["Dinner"]
+    },
+    "-NZ2wXvZ9Y4WBd-sP5ey": {
+      "ingredients": [
+        { "name": "Tortilla Wraps", "quantity": 2 },
+        { "name": "BBQ Sauce", "quantity": "30g" },
+        { "name": "Tomato Puree", "quantity": "30ml" },
+        { "name": "Red Onion", "quantity": "1/4 Onion" },
+        { "name": "Cheese", "quantity": "100g" }
+      ],
+      "name": "Tortilla Pizza",
+      "description": "A Tortilla-based spin on the classic pizza!",
+      "time": 20,
+      "meal": ["Lunch"]
+    },
+    "-NZ2wYpxblj_3FxqkOUf": {
+      "ingredients": [
+        {
+          "name": "Baking Potato",
+          "quantity": 2,
+          "substitutes": [{ "name": "Sweet Potato (Large)" }]
+        },
+        {
+          "name": "Cheese",
+          "quantity": "50g",
+          "substitutes": [
+            { "name": "Baked Beans", "quantity": "1 can" },
+            { "name": "Mixed Leaf Salad", "quantity": "60g" }
+          ]
+        }
+      ],
+      "name": "Jacket Potato",
+      "description": "The classic jacket potato, with a variety of toppings to choose from!",
+      "time": 45,
+      "meal": ["Lunch"]
+    },
+    "-NZ2wZJHVmWIyul5F_K0": {
+      "ingredients": [
+        { "name": "Bread", "quantity": "4 slices" },
+        { "name": "Baked Beans", "quantity": "1 can" },
+        { "name": "Cheese", "quantity": "50g" }
+      ],
+      "name": "Beans on Toast",
+      "description": "The British Classic!",
+      "time": 5,
+      "meal": ["Breakfast", "Lunch"]
     }
   }
 }

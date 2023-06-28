@@ -73,7 +73,7 @@ const IngredientsCard = ({ ingredient, index }) => {
             />
           )}
         </Text>
-        <Text>Quantity: {ingredient.quantity}</Text>
+        <Text> {ingredient.quantity}</Text>
       </Stack>
       {ingredient.substitutes &&
         ingredient.substitutes.length > 0 &&
@@ -85,7 +85,7 @@ const IngredientsCard = ({ ingredient, index }) => {
                   <Stack horizontal horizontalAlign="space-between" key={index}>
                     <Text variant="small">{substitute.name}</Text>
                     <Text variant="small">
-                      Quantity: {substitute.quantity ?? ingredient.quantity}
+                      {substitute.quantity ?? ingredient.quantity}
                     </Text>
                   </Stack>
                 );
