@@ -41,10 +41,11 @@ const Recipes = () => {
   ];
 
   return (
-    <Stack styles={{ root: { paddingRight: 10, paddingLeft: 10 } }}>
-      <Text>Recipes</Text>
+    <Stack styles={{ root: { padding: 10 } }}>
+      <Text variant="xxLarge">Recipes</Text>
       <ShimmeredDetailsList
         columns={columns}
+        compact
         enableShimmer={recipes.isLoading}
         items={recipes.isLoading ? [] : recipes.data}
         selectionMode={SelectionMode.none}

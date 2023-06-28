@@ -24,11 +24,15 @@ const Header = () => {
         styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}
         onClick={() => window.history.back()}
       />
-      <Icon
-        iconName="Lock"
-        styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}
-        onClick={onClickGenerateKey}
-      />
+      {window.location.hostname === "localhost" && (
+        <Icon
+          iconName="Lock"
+          styles={{
+            root: { fontSize: 35, color: theme.palette.themeTertiary },
+          }}
+          onClick={onClickGenerateKey}
+        />
+      )}
       <Icon
         iconName="SignOut"
         styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}

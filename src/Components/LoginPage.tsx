@@ -38,7 +38,7 @@ const LoginPage = () => {
         iconName="EatDrink"
         styles={{ root: { fontSize: 96, color: theme.palette.accent } }}
       />
-      <Text variant="xxLarge">Jemily's Menu Planner</Text>
+      <Text variant="xxLargePlus">Jemily's Menu Planner</Text>
       <PrimaryButton onClick={signInWithGoogle}>
         Sign In with Google
       </PrimaryButton>
