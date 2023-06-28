@@ -27,12 +27,14 @@ const RecipePage = () => {
       styles={{ root: { padding: 10, overflowY: "auto", height: "100%" } }}
     >
       <Text variant="xxLarge">{recipe?.name}</Text>
-      <Image
-        src={recipe?.image}
-        height={250}
-        width={"100%"}
-        imageFit={ImageFit.cover}
-      />
+      {recipe?.image && (
+        <Image
+          src={recipe?.image}
+          height={250}
+          width={"100%"}
+          imageFit={ImageFit.cover}
+        />
+      )}
       <Text>{recipe?.description}</Text>
       <Separator styles={{ root: { fontSize: "larger" } }}>
         Ingredients

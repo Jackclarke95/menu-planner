@@ -5,7 +5,7 @@ export type Recipe = {
   ingredients: Ingredient[];
   time: number;
   image?: string;
-  meal: string;
+  meal: string[];
 };
 
 export type Ingredient = {

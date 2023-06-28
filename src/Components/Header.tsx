@@ -2,11 +2,9 @@ import { logOut } from "./LoginPage";
 import "./Header.scss";
 import DataService from "../Helpers/DataService";
 import { Icon, Stack, useTheme } from "@fluentui/react";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const theme = useTheme();
-  const navigate = useNavigate();
 
   const onClickGenerateKey = () => {
     const key = DataService.generateKey();
@@ -22,9 +20,9 @@ const Header = () => {
       styles={{ root: { backgroundColor: theme.palette.accent } }}
     >
       <Icon
-        iconName="EatDrink"
+        iconName="Back"
         styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}
-        onClick={() => navigate("/")}
+        onClick={() => window.history.back()}
       />
       <Icon
         iconName="Lock"

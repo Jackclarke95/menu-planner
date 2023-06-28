@@ -24,16 +24,12 @@ const Home = () => {
   };
 
   const onSaveIngredient = () => {
-    console.log("Save Ingredient");
-
     if (ingredient) {
       DataService.addIngredient(ingredient);
 
       setIngredient(undefined);
     }
   };
-
-  console.log(ingredient);
 
   return (
     <Stack styles={{ root: { paddingRight: 10, paddingLeft: 10 } }}>
