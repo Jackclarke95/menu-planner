@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Recipes = () => {
+  const navigate = useNavigate();
   const recipes = useSelector((state) => state.recipes);
 
   console.log(recipes);
@@ -13,7 +15,9 @@ const Recipes = () => {
       ) : (
         <ul>
           {recipes.data.map((recipe) => (
-            <li key={recipe.id}>{recipe.name}</li>
+            <li key={recipe.id} onClick={() => navigate(`${recipe.id}`)}>
+              {recipe.name}
+            </li>
           ))}
         </ul>
       )}

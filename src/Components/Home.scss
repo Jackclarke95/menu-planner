@@ -1,4 +1,7 @@
-.link-container {
-  display: flex;
-  flex-direction: column;
+.home-container {
+  padding: 10px;
+  .link-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
