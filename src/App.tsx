@@ -11,6 +11,7 @@ import Header from "./Components/Header";
 import Recipes from "./Components/RecipeList";
 import Home from "./Components/Home";
 import RecipePage from "./Components/RecipePage";
+import PdfTestPage from "./Components/PdfTestPage";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -70,6 +71,7 @@ const App = () => {
             <Route path="/account" element={<div>Account</div>} />
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/recipes/:recipeId" element={<RecipePage />} />
+            <Route path="/pdf-test-page" element={<PdfTestPage />} />
           </Routes>
         </BrowserRouter>
       ) : (

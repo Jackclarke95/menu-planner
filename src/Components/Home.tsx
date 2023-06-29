@@ -38,6 +38,7 @@ const Home = () => {
         <Link to="/">Home</Link>
         <Link to="/recipes">Recipes</Link>
         <Link to="/account">Account</Link>
+        <Link to="/pdf-test-page">PDF Test</Link>
       </Stack>
       <Separator />
       <Stack tokens={{ childrenGap: 10 }}>
