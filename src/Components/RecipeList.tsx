@@ -113,6 +113,7 @@ const Recipes = () => {
         imageFit={ImageFit.contain}
         styles={menuFilters.includes(label) ? undefined : mealIconInactive}
         onClick={() => onChangeMenuFilter(label)}
+        shouldFadeIn={false}
       />
     );
   };
