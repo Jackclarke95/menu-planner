@@ -20,7 +20,7 @@ const Recipes = () => {
   const [timeFilter, setTimeFilter] = useState<number>(0);
 
   useEffect(() => {
-    var recipesToFilter = recipes.isLoading ? [] : recipes.data;
+    const recipesToFilter = recipes.isLoading ? [] : recipes.data;
 
     setFilteredRecipes(
       recipesToFilter.filter(
@@ -115,11 +115,6 @@ const Recipes = () => {
         <Slider
           label="Max time"
           max={
-            recipes.isLoading
-              ? 0
-              : Math.max(...recipes.data.map((recipe) => recipe.time))
-          }
-          defaultValue={
             recipes.isLoading
               ? 0
               : Math.max(...recipes.data.map((recipe) => recipe.time))
