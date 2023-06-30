@@ -119,6 +119,11 @@ const Recipes = () => {
               ? 0
               : Math.max(...recipes.data.map((recipe) => recipe.time))
           }
+          defaultValue={
+            recipes.isLoading
+              ? 0
+              : Math.max(...recipes.data.map((recipe) => recipe.time))
+          }
           step={5}
           showValue
           styles={{ valueLabel: { width: "" } }}
