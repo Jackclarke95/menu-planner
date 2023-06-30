@@ -12,6 +12,7 @@ import "./PdfTestPage.scss";
 import { useSelector } from "react-redux";
 import { Recipe } from "../Data/Types";
 import DataHelper from "../Helpers/DataHelper";
+import BasePage from "./BasePage";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -62,8 +63,6 @@ const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
   let lunches = recipes.filter((recipe) => recipe.meal.includes("Lunch"));
   let dinners = recipes.filter((recipe) => recipe.meal.includes("Dinner"));
 
-  console.log({ breakfasts }, { lunches }, { dinners });
-
   const Row = (day: string) => (
     <View style={styles.row}>
       <Text style={styles.dayTitle}>{day}</Text>
@@ -107,30 +106,30 @@ const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
 const PdfTestPage = () => {
   let recipes = useSelector((state) => state.recipes);
 
-  console.log(recipes);
-
   return (
-    <Stack tokens={{ childrenGap: 10 }}>
-      <PDFViewer>
-        <MyDocument recipes={recipes.isLoading ? [] : recipes.data} />
-      </PDFViewer>
-      <PDFDownloadLink
-        document={
+    <BasePage pageTitle="PDF Test">
+      <Stack tokens={{ childrenGap: 10 }}>
+        <PDFViewer>
           <MyDocument recipes={recipes.isLoading ? [] : recipes.data} />
-        }
-        fileName="MealPlanner.pdf"
-        className="pdf-download-link"
-      />
-      <PrimaryButton
-        text="Save PDF"
-        onClick={() => {
-          let pdfDownloadLink = document.getElementsByClassName(
-            "pdf-download-link"
-          )[0] as HTMLElement;
-          pdfDownloadLink.click();
-        }}
-      />
-    </Stack>
+        </PDFViewer>
+        <PDFDownloadLink
+          document={
+            <MyDocument recipes={recipes.isLoading ? [] : recipes.data} />
+          }
+          fileName="MealPlanner.pdf"
+          className="pdf-download-link"
+        />
+        <PrimaryButton
+          text="Save PDF"
+          onClick={() => {
+            let pdfDownloadLink = document.getElementsByClassName(
+              "pdf-download-link"
+            )[0] as HTMLElement;
+            pdfDownloadLink.click();
+          }}
+        />
+      </Stack>
+    </BasePage>
   );
 };
 

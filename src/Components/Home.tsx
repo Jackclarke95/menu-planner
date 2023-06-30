@@ -1,61 +1,33 @@
-import { Link } from "react-router-dom";
-import {
-  PrimaryButton,
-  Separator,
-  Stack,
-  Text,
-  TextField,
-} from "@fluentui/react";
+import { useNavigate } from "react-router-dom";
+import { Depths, Separator, Stack, Text } from "@fluentui/react";
 import "./Home.scss";
-import { useState } from "react";
-import DataService from "../Helpers/DataService";
+import BasePage from "./BasePage";
 
 const Home = () => {
-  const [ingredient, setIngredient] = useState<string | undefined>(undefined);
+  const navigate = useNavigate();
 
-  const onChangeIngredientName = (_, newValue?: string | undefined) => {
-    setIngredient(newValue);
-  };
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      onSaveIngredient();
-    }
-  };
-
-  const onSaveIngredient = () => {
-    if (ingredient) {
-      DataService.addIngredient(ingredient);
-
-      setIngredient(undefined);
-    }
+  const MenuLink: React.FC<{ label: string; link: string }> = ({
+    label,
+    link,
+  }) => {
+    return (
+      <Text
+        styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
+        onClick={() => navigate(link)}
+      >
+        {label}
+      </Text>
+    );
   };
 
   return (
-    <Stack styles={{ root: { paddingRight: 10, paddingLeft: 10 } }}>
-      <Text variant="xxLarge">Home</Text>
-      <Stack>
-        <Link to="/">Home</Link>
-        <Link to="/recipes">Recipes</Link>
-        <Link to="/account">Account</Link>
-        <Link to="/pdf-test-page">PDF Test</Link>
+    <BasePage pageTitle="Jemily Menu Planner">
+      <Stack tokens={{ childrenGap: 10 }}>
+        <MenuLink label="Recipes" link="/recipes" />
+        <MenuLink label="PDF Test Page" link="/pdf-test-page" />
       </Stack>
       <Separator />
-      <Stack tokens={{ childrenGap: 10 }}>
-        <Text variant="large">Add Ingredient</Text>
-        <TextField
-          label="Name"
-          onChange={onChangeIngredientName}
-          value={ingredient}
-          onKeyDown={onKeyDown}
-        />
-        <PrimaryButton
-          text="Save"
-          onClick={onSaveIngredient}
-          disabled={!ingredient}
-        />
-      </Stack>
-    </Stack>
+    </BasePage>
   );
 };
 

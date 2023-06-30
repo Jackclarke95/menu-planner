@@ -4,6 +4,7 @@ import {
   Image,
   ImageFit,
   SelectionMode,
+  Separator,
   ShimmeredDetailsList,
   Slider,
   Stack,
@@ -16,6 +17,7 @@ import { useEffect, useState } from "react";
 import BreakfastIcon from "../Images/breakfast.png";
 import LunchIcon from "../Images/sandwich.png";
 import DinnerIcon from "../Images/restaurant.png";
+import BasePage from "./BasePage";
 
 const Recipes = () => {
   const recipes = useSelector((state) => state.recipes);
@@ -116,35 +118,33 @@ const Recipes = () => {
   };
 
   return (
-    <Stack styles={{ root: { padding: 10 } }} tokens={{ childrenGap: 10 }}>
-      <Text variant="xxLarge">Browse Recipes</Text>
-      <Stack tokens={{ childrenGap: 10 }}>
-        <Stack tokens={{ childrenGap: 5 }}>
-          <Text styles={{ root: { fontWeight: 600 } }}>Filter by meal</Text>
-          <Stack
-            horizontal
-            horizontalAlign="space-around"
-            tokens={{ childrenGap: 10 }}
-            verticalAlign="center"
-          >
-            <MealFilterIcon icon={BreakfastIcon} label="Breakfast" />
-            <MealFilterIcon icon={LunchIcon} label="Lunch" />
-            <MealFilterIcon icon={DinnerIcon} label="Dinner" />
-          </Stack>
+    <BasePage pageTitle="Recipes">
+      <Stack tokens={{ childrenGap: 5 }}>
+        <Stack
+          horizontal
+          horizontalAlign="space-around"
+          tokens={{ childrenGap: 10 }}
+          verticalAlign="center"
+        >
+          <MealFilterIcon icon={BreakfastIcon} label="Breakfast" />
+          <MealFilterIcon icon={LunchIcon} label="Lunch" />
+          <MealFilterIcon icon={DinnerIcon} label="Dinner" />
         </Stack>
-        <Slider
-          label="Max time"
-          max={
-            recipes.isLoading
-              ? 0
-              : Math.max(...recipes.data.map((recipe) => recipe.time))
-          }
-          step={5}
-          showValue
-          styles={{ valueLabel: { width: "" } }}
-          onChange={(a) => onChangeTimeFilter(a)}
-        />
+        <Text styles={{ root: { fontWeight: 600 } }}>Filter by meal</Text>
       </Stack>
+      <Separator />
+      <Slider
+        max={
+          recipes.isLoading
+            ? 0
+            : Math.max(...recipes.data.map((recipe) => recipe.time))
+        }
+        step={5}
+        showValue
+        styles={{ valueLabel: { width: "" } }}
+        onChange={(a) => onChangeTimeFilter(a)}
+      />
+      <Text styles={{ root: { fontWeight: 600 } }}>Filter by time</Text>
       <ShimmeredDetailsList
         columns={columns}
         compact
@@ -152,7 +152,7 @@ const Recipes = () => {
         items={filteredRecipes}
         selectionMode={SelectionMode.none}
       />
-    </Stack>
+    </BasePage>
   );
 };
 
