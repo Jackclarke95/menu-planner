@@ -259,7 +259,7 @@ export default class DataHelper {
     const firstMondayToRender = DataHelper.getMondayOfWeek(firstDayOfMonth);
     const lastMondayToRender = DataHelper.getMondayOfWeek(lastDayOfMonth);
 
-    var currentMonday = firstMondayToRender;
+    let currentMonday = firstMondayToRender;
 
     do {
       const week = DataHelper.getDaysOfWeek(currentMonday);

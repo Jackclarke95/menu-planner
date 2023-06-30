@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
 
 // Create Document Component
 const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
-  var breakfasts = recipes.filter((recipe) =>
+  let breakfasts = recipes.filter((recipe) =>
     recipe.meal.includes("Breakfast")
   );
-  var lunches = recipes.filter((recipe) => recipe.meal.includes("Lunch"));
-  var dinners = recipes.filter((recipe) => recipe.meal.includes("Dinner"));
+  let lunches = recipes.filter((recipe) => recipe.meal.includes("Lunch"));
+  let dinners = recipes.filter((recipe) => recipe.meal.includes("Dinner"));
 
   console.log({ breakfasts }, { lunches }, { dinners });
 
@@ -105,7 +105,7 @@ const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
 };
 
 const PdfTestPage = () => {
-  var recipes = useSelector((state) => state.recipes);
+  let recipes = useSelector((state) => state.recipes);
 
   console.log(recipes);
 

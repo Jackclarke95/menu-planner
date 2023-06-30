@@ -90,20 +90,17 @@ const Recipes = () => {
     setTimeFilter(value);
   };
 
-  const mealIconInactive: IImageStyles = {
-    root: {
-      color: "red",
-      filter: "invert(80%)",
-    },
-    image: undefined,
-  };
-
-  console.log(menuFilters);
-
   const MealFilterIcon: React.FC<{ label: string; icon: string }> = ({
     label,
     icon,
   }) => {
+    const disabledIconStyles: IImageStyles = {
+      root: {
+        opacity: 0.2,
+      },
+      image: icon,
+    };
+
     return (
       <Image
         src={icon}
@@ -111,9 +108,9 @@ const Recipes = () => {
         height={60}
         width={50}
         imageFit={ImageFit.contain}
-        styles={menuFilters.includes(label) ? undefined : mealIconInactive}
+        styles={menuFilters.includes(label) ? undefined : disabledIconStyles}
         onClick={() => onChangeMenuFilter(label)}
-        shouldFadeIn={false}
+        shouldStartVisible={true}
       />
     );
   };
