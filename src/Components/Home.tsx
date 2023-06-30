@@ -22,11 +22,10 @@ const Home = () => {
 
   return (
     <BasePage pageTitle="Jemily Menu Planner">
-      <Stack tokens={{ childrenGap: 10 }}>
+      <Stack tokens={{ childrenGap: 10, padding: 10 }}>
         <MenuLink label="Recipes" link="/recipes" />
         <MenuLink label="PDF Test Page" link="/pdf-test-page" />
       </Stack>
-      <Separator />
     </BasePage>
   );
 };
