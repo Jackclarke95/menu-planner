@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Depths, Separator, Stack, Text } from "@fluentui/react";
+import { Depths, Stack, Text } from "@fluentui/react";
 import "./Home.scss";
 import BasePage from "./BasePage";
 
