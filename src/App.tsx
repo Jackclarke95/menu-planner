@@ -12,6 +12,8 @@ import Recipes from "./Components/RecipeList";
 import Home from "./Components/Home";
 import RecipePage from "./Components/RecipePage";
 import PdfTestPage from "./Components/PdfTestPage";
+import Footer from "./Components/Footer";
+import { Stack } from "@fluentui/react";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -62,22 +64,25 @@ const App = () => {
   });
 
   return (
-    <React.Fragment>
+    <Stack verticalFill>
       {authUser ? (
         <BrowserRouter>
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/account" element={<div>Account</div>} />
-            <Route path="/recipes" element={<Recipes />} />
-            <Route path="/recipes/:recipeId" element={<RecipePage />} />
-            <Route path="/pdf-test-page" element={<PdfTestPage />} />
-          </Routes>
+          <Stack verticalFill>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/account" element={<div>Account</div>} />
+              <Route path="/recipes" element={<Recipes />} />
+              <Route path="/recipes/:recipeId" element={<RecipePage />} />
+              <Route path="/pdf-test-page" element={<PdfTestPage />} />
+            </Routes>
+          </Stack>
+          <Footer />
         </BrowserRouter>
       ) : (
         <LoginPage />
       )}
-    </React.Fragment>
+    </Stack>
   );
 };
 

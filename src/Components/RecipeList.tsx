@@ -1,6 +1,8 @@
 import {
-  Checkbox,
   IColumn,
+  IImageStyles,
+  Image,
+  ImageFit,
   SelectionMode,
   ShimmeredDetailsList,
   Slider,
@@ -11,12 +13,19 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Recipe } from "../Data/Types";
 import { useEffect, useState } from "react";
+import BreakfastIcon from "../Images/breakfast.png";
+import LunchIcon from "../Images/sandwich.png";
+import DinnerIcon from "../Images/restaurant.png";
 
 const Recipes = () => {
   const recipes = useSelector((state) => state.recipes);
 
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
-  const [menuFilters, setMenuFilters] = useState<string[]>([]);
+  const [menuFilters, setMenuFilters] = useState<string[]>([
+    "Breakfast",
+    "Lunch",
+    "Dinner",
+  ]);
   const [timeFilter, setTimeFilter] = useState<number>(0);
 
   useEffect(() => {
@@ -60,17 +69,18 @@ const Recipes = () => {
     },
   ];
 
-  const onChangeMenuFilter = (
-    _,
-    checked: boolean | undefined,
-    meal: string
-  ) => {
-    if (checked) {
-      setMenuFilters([...menuFilters, meal]);
+  const onChangeMenuFilter = (meal: string) => {
+    if (menuFilters.includes(meal)) {
+      const newMenuFilters = menuFilters.filter((filter) => filter !== meal);
+      if (newMenuFilters.length === 0) {
+        setMenuFilters(["Breakfast", "Lunch", "Dinner"]);
+      } else {
+        setMenuFilters(menuFilters.filter((filter) => filter !== meal));
+      }
 
       return;
     } else {
-      setMenuFilters(menuFilters.filter((filter) => filter !== meal));
+      setMenuFilters([...menuFilters, meal]);
 
       return;
     }
@@ -78,6 +88,33 @@ const Recipes = () => {
 
   const onChangeTimeFilter = (value: number) => {
     setTimeFilter(value);
+  };
+
+  const mealIconInactive: IImageStyles = {
+    root: {
+      color: "red",
+      filter: "invert(80%)",
+    },
+    image: undefined,
+  };
+
+  console.log(menuFilters);
+
+  const MealFilterIcon: React.FC<{ label: string; icon: string }> = ({
+    label,
+    icon,
+  }) => {
+    return (
+      <Image
+        src={icon}
+        alt="Breakfast Icon"
+        height={60}
+        width={50}
+        imageFit={ImageFit.contain}
+        styles={menuFilters.includes(label) ? undefined : mealIconInactive}
+        onClick={() => onChangeMenuFilter(label)}
+      />
+    );
   };
 
   return (
@@ -88,28 +125,13 @@ const Recipes = () => {
           <Text styles={{ root: { fontWeight: 600 } }}>Filter by meal</Text>
           <Stack
             horizontal
-            horizontalAlign="space-between"
+            horizontalAlign="space-around"
             tokens={{ childrenGap: 10 }}
+            verticalAlign="center"
           >
-            <Checkbox
-              label="Breakfast"
-              boxSide="end"
-              onChange={(_, checked) =>
-                onChangeMenuFilter(_, checked, "Breakfast")
-              }
-            />
-            <Checkbox
-              label="Lunch"
-              boxSide="end"
-              onChange={(_, checked) => onChangeMenuFilter(_, checked, "Lunch")}
-            />
-            <Checkbox
-              label="Dinner"
-              boxSide="end"
-              onChange={(_, checked) =>
-                onChangeMenuFilter(_, checked, "Dinner")
-              }
-            />
+            <MealFilterIcon icon={BreakfastIcon} label="Breakfast" />
+            <MealFilterIcon icon={LunchIcon} label="Lunch" />
+            <MealFilterIcon icon={DinnerIcon} label="Dinner" />
           </Stack>
         </Stack>
         <Slider

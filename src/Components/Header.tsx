@@ -1,5 +1,4 @@
 import { logOut } from "./LoginPage";
-import "./Header.scss";
 import DataService from "../Helpers/DataService";
 import { Icon, Stack, useTheme } from "@fluentui/react";
 
@@ -16,8 +15,16 @@ const Header = () => {
 
   return (
     <Stack
-      className="header-container"
-      styles={{ root: { backgroundColor: theme.palette.accent } }}
+      horizontal
+      horizontalAlign="space-between"
+      verticalAlign="center"
+      styles={{
+        root: {
+          padding: "10px 20px",
+          height: 60,
+          backgroundColor: theme.palette.accent,
+        },
+      }}
     >
       <Icon
         iconName="Back"
