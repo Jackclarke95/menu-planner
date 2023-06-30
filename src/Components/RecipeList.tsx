@@ -2,7 +2,6 @@ import {
   Checkbox,
   IColumn,
   SelectionMode,
-  Separator,
   ShimmeredDetailsList,
   Slider,
   Stack,
