@@ -11,7 +11,7 @@ import {
   Text,
 } from "@fluentui/react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Recipe } from "../Data/Types";
 import { useEffect, useState } from "react";
 import BreakfastIcon from "../Images/breakfast.png";
@@ -20,6 +20,8 @@ import DinnerIcon from "../Images/restaurant.png";
 import BasePage from "./BasePage";
 
 const Recipes = () => {
+  const navigate = useNavigate();
+
   const recipes = useSelector((state) => state.recipes);
 
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
@@ -50,9 +52,9 @@ const Recipes = () => {
       fieldName: "name",
       minWidth: 100,
       onRender: (item: Recipe) => (
-        <Link to={`/recipes/${item.id}`} title={item.name}>
+        <span onClick={() => navigate(`/recipes/${item.id}`)} title={item.name}>
           {item.name}
-        </Link>
+        </span>
       ),
     },
     {
@@ -60,14 +62,22 @@ const Recipes = () => {
       name: "Meal",
       fieldName: "meal",
       minWidth: 50,
-      onRender: (item: Recipe) => <span>{item.meal.join(", ")}</span>,
+      onRender: (item: Recipe) => (
+        <span onClick={() => navigate(`/recipes/${item.id}`)}>
+          {item.meal.join(", ")}
+        </span>
+      ),
     },
     {
       key: "time",
       name: "Time",
       fieldName: "time",
       minWidth: 50,
-      onRender: (item: Recipe) => <span>{item.time} mins</span>,
+      onRender: (item: Recipe) => (
+        <span onClick={() => navigate(`/recipes/${item.id}`)}>
+          {item.time} mins
+        </span>
+      ),
     },
   ];
 

@@ -24,6 +24,7 @@ const Home = () => {
     <BasePage pageTitle="Jemily Menu Planner">
       <Stack tokens={{ childrenGap: 10, padding: 10 }}>
         <MenuLink label="Recipes" link="/recipes" />
+        <MenuLink label="Meal Plans" link="/meal-plans" />
         <MenuLink label="PDF Test Page" link="/pdf-test-page" />
       </Stack>
     </BasePage>

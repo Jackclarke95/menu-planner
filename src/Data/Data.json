@@ -327,5 +327,59 @@
       "time": 5,
       "meal": ["Breakfast", "Lunch"]
     }
+  },
+  "mealPlans": {
+    "-NZFpKXlkz0_-S970Irq": {
+      "date": "2023-07-03",
+      "recipes": {
+        "monday": {
+          "breakfast": { "recipeId": "", "isLocked": false },
+          "lunch": { "recipeId": "-NZ2wUKWz7e5fnxQlDU0", "isLocked": false },
+          "dinner": { "recipeId": "-NYz7lf5m7Cqq5eGC5QT", "isLocked": true }
+        },
+        "tuesday": {
+          "breakfast": {
+            "recipeId": "-NZ2wSEE4fLzt4GIxaem",
+            "isLocked": false
+          },
+          "lunch": { "recipeId": "", "isLocked": false },
+          "dinner": { "recipeId": "-NZ2sSxQrxbBTpTnk2Ya", "isLocked": false }
+        },
+        "wednesday": {
+          "breakfast": { "recipeId": "", "isLocked": false },
+          "lunch": { "recipeId": "", "isLocked": false },
+          "dinner": { "recipeId": "-NZ2namBIvVcFltyjZWc", "isLocked": false },
+          "requirements": {
+            "maxTime": 20
+          }
+        },
+        "thursday": {
+          "breakfast": { "recipeId": "-NZ2wSEE4fLzt4GIxaem", "isLocked": true },
+          "lunch": { "recipeId": "-NZ2wUlSR53G9EoHQsfY", "isLocked": true },
+          "dinner": { "recipeId": "", "isLocked": true }
+        },
+        "friday": {
+          "breakfast": { "recipeId": "", "isLocked": false },
+          "lunch": { "recipeId": "", "isLocked": false },
+          "dinner": { "recipeId": "", "isLocked": false }
+        },
+        "saturday": {
+          "breakfast": { "recipeId": "", "isLocked": true },
+          "lunch": { "recipeId": "-NZ2wTjuS3mullTBNpIU", "isLocked": true },
+          "dinner": { "recipeId": "", "isLocked": false },
+          "requirements": {
+            "maxTime": 45
+          }
+        },
+        "sunday": {
+          "breakfast": { "recipeId": "", "isLocked": false },
+          "lunch": { "recipeId": "", "isLocked": false },
+          "dinner": { "recipeId": "-NZ2sTce6xa-V9IgqNy6", "isLocked": false },
+          "requirements": {
+            "maxTime": 45
+          }
+        }
+      }
+    }
   }
 }

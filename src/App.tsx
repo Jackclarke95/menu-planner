@@ -4,7 +4,6 @@ import { getDatabase, onValue, ref } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Components/LoginPage";
 import Header from "./Components/Header";
@@ -14,6 +13,8 @@ import RecipePage from "./Components/RecipePage";
 import PdfTestPage from "./Components/PdfTestPage";
 import Footer from "./Components/Footer";
 import { Stack } from "@fluentui/react";
+import MealPlanList from "./Components/MealPlanList";
+import MealPlanPage from "./Components/MealPlanPage";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -54,6 +55,25 @@ const App = () => {
     });
   });
 
+  onValue(ref(db, "mealPlans"), (snapshot) => {
+    const mealPlanData = snapshot.val();
+
+    const mealPlans = Object.keys(mealPlanData).map((key) => {
+      const mealPlan = mealPlanData[key];
+      mealPlan.id = key;
+
+      return mealPlan;
+    });
+
+    dispatch({
+      type: "SetMealPlans",
+      mealPlans: {
+        isLoading: false,
+        data: mealPlans,
+      },
+    });
+  });
+
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       dispatch({
@@ -71,10 +91,14 @@ const App = () => {
           <Stack verticalFill>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/account" element={<div>Account</div>} />
               <Route path="/recipes" element={<Recipes />} />
               <Route path="/recipes/:recipeId" element={<RecipePage />} />
               <Route path="/pdf-test-page" element={<PdfTestPage />} />
+              <Route path="/meal-plans" element={<MealPlanList />} />
+              <Route
+                path="/meal-plans/:mealPlanId"
+                element={<MealPlanPage />}
+              />
             </Routes>
           </Stack>
           <Footer />

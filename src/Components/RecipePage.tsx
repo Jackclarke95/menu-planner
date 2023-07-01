@@ -44,14 +44,14 @@ const RecipePage = () => {
         styles={{ root: { padding: 5, overflowY: "auto" } }}
       >
         {recipe?.ingredients.map((ingredient, index) => {
-          return <IngredientsCard ingredient={ingredient} index={index} />;
+          return <IngredientsCard ingredient={ingredient} key={index} />;
         })}
       </Stack>
     </Stack>
   );
 };
 
-const IngredientsCard = ({ ingredient, index }) => {
+const IngredientsCard = ({ ingredient }) => {
   const [expandSubstitutes, setExpandSubstitutes] = useState<boolean>(false);
 
   const toggleExpandSubstitutes = () => {
@@ -60,7 +60,6 @@ const IngredientsCard = ({ ingredient, index }) => {
 
   return (
     <Stack
-      key={index}
       onClick={toggleExpandSubstitutes}
       styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
       tokens={{ childrenGap: 5 }}
