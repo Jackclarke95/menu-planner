@@ -12,11 +12,11 @@ import {
 } from "@fluentui/react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Recipe } from "../Data/Types";
+import { Recipe } from "../../Data/Types";
 import { useEffect, useState } from "react";
-import BreakfastIcon from "../Images/breakfast.png";
-import LunchIcon from "../Images/sandwich.png";
-import DinnerIcon from "../Images/restaurant.png";
+import BreakfastIcon from "../../Images/breakfast.png";
+import LunchIcon from "../../Images/sandwich.png";
+import DinnerIcon from "../../Images/restaurant.png";
 import BasePage from "./BasePage";
 
 const Recipes = () => {

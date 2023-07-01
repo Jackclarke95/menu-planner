@@ -73,8 +73,8 @@ export default class DataHelper {
    * @param date The date
    * @returns The date's day of the week
    */
-  public static getDayOfTheWeek(date: Date): string {
-    const dayOfTheWeek = date.toLocaleString("en-GB", {
+  public static getWeekdayName(date: Date | string): string {
+    const dayOfTheWeek = new Date(date).toLocaleString("en-GB", {
       weekday: "long",
     });
 

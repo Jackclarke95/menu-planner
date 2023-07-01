@@ -1,4 +1,4 @@
-import { logOut } from "./LoginPage";
+import { logOut } from "./Pages/LoginPage";
 import DataService from "../Helpers/DataService";
 import { Icon, Stack, useTheme } from "@fluentui/react";
 

@@ -10,8 +10,8 @@ import {
 import { PrimaryButton, Stack } from "@fluentui/react";
 import "./PdfTestPage.scss";
 import { useSelector } from "react-redux";
-import { Recipe } from "../Data/Types";
-import DataHelper from "../Helpers/DataHelper";
+import { Recipe } from "../../Data/Types";
+import DataHelper from "../../Helpers/DataHelper";
 import BasePage from "./BasePage";
 
 // Create styles

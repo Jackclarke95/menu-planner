@@ -5,16 +5,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./Components/LoginPage";
+import LoginPage from "./Components/Pages/LoginPage";
 import Header from "./Components/Header";
-import Recipes from "./Components/RecipeList";
-import Home from "./Components/Home";
-import RecipePage from "./Components/RecipePage";
-import PdfTestPage from "./Components/PdfTestPage";
+import Recipes from "./Components/Pages/RecipeList";
+import Home from "./Components/Pages/HomePage";
+import RecipePage from "./Components/Pages/RecipePage";
+import PdfTestPage from "./Components/Pages/PdfTestPage";
 import Footer from "./Components/Footer";
 import { Stack } from "@fluentui/react";
-import MealPlanList from "./Components/MealPlanList";
-import MealPlanPage from "./Components/MealPlanPage";
+import MealPlanList from "./Components/Pages/MealPlanList";
+import MealPlanPage from "./Components/Pages/MealPlanPage";
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,

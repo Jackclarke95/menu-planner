@@ -18,18 +18,11 @@ export type Ingredient = {
 export type MealPlan = {
   id: string;
   date: string;
-  recipes: {
-    monday: MealPlanDay;
-    tuesday: MealPlanDay;
-    wednesday: MealPlanDay;
-    thursday: MealPlanDay;
-    friday: MealPlanDay;
-    saturday: MealPlanDay;
-    sunday: MealPlanDay;
-  };
+  recipes: MealPlanDay[];
 };
 
-type MealPlanDay = {
+export type MealPlanDay = {
+  date: string;
   breakfast: MealPlanMeal;
   lunch: MealPlanMeal;
   dinner: MealPlanMeal;
@@ -38,7 +31,7 @@ type MealPlanDay = {
   };
 };
 
-type MealPlanMeal = {
-  id: string;
+export type MealPlanMeal = {
+  recipeId: string;
   isLocked: boolean;
 };

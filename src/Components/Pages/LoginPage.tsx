@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 
-import { auth } from "../App";
+import { auth } from "../../App";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { Icon, PrimaryButton, Stack, Text, useTheme } from "@fluentui/react";
 

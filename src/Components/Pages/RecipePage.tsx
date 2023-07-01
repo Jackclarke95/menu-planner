@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { Ingredient } from "../Data/Types";
+import { Ingredient } from "../../Data/Types";
 import { Icon } from "@fluentui/react/lib/Icon";
 
 const RecipePage = () => {
