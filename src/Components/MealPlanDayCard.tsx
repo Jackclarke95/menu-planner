@@ -4,6 +4,8 @@ import DataHelper from "../Helpers/DataHelper";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { MealType } from "../Data/Enums";
+import { ref, update } from "firebase/database";
+import { db } from "../App";
 
 const MealPlanDayCard: React.FC<{
   dailyMealPlan: DailyMealPlan;
@@ -30,6 +32,12 @@ const MealPlanDayCard: React.FC<{
 
     const onClickLockMeal = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
       e.stopPropagation();
+
+      const mealRef = ref(db, `/mealPlans/${mealPlanId}/${mealType}`);
+
+      update(mealRef, {
+        isLocked: !isLocked,
+      });
 
       setIsLocked(!isLocked);
     };

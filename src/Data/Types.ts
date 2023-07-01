@@ -19,18 +19,20 @@ export type Ingredient = {
 
 export type WeeklyMealPlan = {
   id: string;
-  date: string;
-  monday: DailyMealPlan;
-  tuesday: DailyMealPlan;
-  wednesday: DailyMealPlan;
-  thursday: DailyMealPlan;
-  friday: DailyMealPlan;
-  saturday: DailyMealPlan;
-  sunday: DailyMealPlan;
+  startDate: string;
+  dailyMealPlans: DailyMealPlan[];
 };
 
 export type DailyMealPlan = {
   date: string;
+  day:
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday"
+    | "saturday"
+    | "sunday";
   breakfast: Meal;
   lunch: Meal;
   dinner: Meal;

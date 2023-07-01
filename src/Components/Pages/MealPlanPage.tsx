@@ -20,18 +20,29 @@ const MealPlanPage = () => {
   } else {
     console.log({ weeklyMealPlan });
 
+    const dailyMealPlans = weeklyMealPlan.dailyMealPlans
+      .slice()
+      .sort((a, b) => a.date.localeCompare(b.date));
+
+    console.log({ dailyMealPlans });
+
     return (
-      <BasePage pageTitle={new Date(weeklyMealPlan.date).toDateString()}>
+      <BasePage pageTitle={new Date(weeklyMealPlan.startDate).toDateString()}>
         <Stack styles={{ root: { padding: 10 } }} tokens={{ childrenGap: 10 }}>
-          <Stack
-            key={weeklyMealPlan.id}
-            styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
-          >
-            <MealPlanDayCard
-              dailyMealPlan={weeklyMealPlan.monday}
-              mealPlanId={weeklyMealPlan.id}
-            ></MealPlanDayCard>
-          </Stack>
+          {dailyMealPlans.map((dailyMealPlan) => {
+            return (
+              <Stack
+                key={weeklyMealPlan.id}
+                styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
+              >
+                <MealPlanDayCard
+                  dailyMealPlan={dailyMealPlan}
+                  key={dailyMealPlan.date}
+                  mealPlanId={weeklyMealPlan.id}
+                />
+              </Stack>
+            );
+          })}
         </Stack>
       </BasePage>
     );

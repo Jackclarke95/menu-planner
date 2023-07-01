@@ -62,6 +62,17 @@ const App = () => {
       const weeklyMealPlan = weeklyMealPlanData[key];
       weeklyMealPlan.id = key;
 
+      const dailyMealPlans = Object.keys(weeklyMealPlan.dailyMealPlans).map(
+        (key) => {
+          const dailyMealPlan = weeklyMealPlan.dailyMealPlans[key];
+          dailyMealPlan.day = key;
+
+          return dailyMealPlan;
+        }
+      );
+
+      weeklyMealPlan.dailyMealPlans = dailyMealPlans;
+
       return weeklyMealPlan;
     });
 

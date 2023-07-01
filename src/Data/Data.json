@@ -330,31 +330,54 @@
   },
   "weeklyMealPlans": {
     "-NZFpKXlkz0_-S970Irq": {
-      "date": "2023-07-03",
-      "monday": {
-        "date": "2023-07-03",
-        "breakfast": {
-          "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
-          "mealType": "breakfast",
-          "isLocked": false,
-          "requirements": {
-            "maxTime": 30
+      "startDate": "2023-07-03",
+      "dailyMealPlans": {
+        "monday": {
+          "date": "2023-07-03",
+          "breakfast": {
+            "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
+            "mealType": "breakfast",
+            "isLocked": false,
+            "requirements": {
+              "maxTime": 30
+            }
+          },
+          "lunch": {
+            "recipeId": "-NZ2wZJHVmWIyul5F_K0",
+            "mealType": "lunch",
+            "isLocked": true,
+            "requirements": {
+              "maxTime": 15
+            }
+          },
+          "dinner": {
+            "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
+            "mealType": "dinner",
+            "isLocked": false,
+            "requirements": {
+              "maxTime": 45
+            }
           }
         },
-        "lunch": {
-          "recipeId": "-NZ2wZJHVmWIyul5F_K0",
-          "mealType": "lunch",
-          "isLocked": true,
-          "requirements": {
-            "maxTime": 15
-          }
-        },
-        "dinner": {
-          "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
-          "mealType": "dinner",
-          "isLocked": false,
-          "requirements": {
-            "maxTime": 45
+        "tuesday": {
+          "date": "2023-07-04",
+          "breakfast": {
+            "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
+            "mealType": "breakfast",
+            "isLocked": false
+          },
+          "lunch": {
+            "recipeId": "-NZ2wZJHVmWIyul5F_K0",
+            "mealType": "lunch",
+            "isLocked": true
+          },
+          "dinner": {
+            "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
+            "mealType": "dinner",
+            "isLocked": false,
+            "requirements": {
+              "maxTime": 20
+            }
           }
         }
       }
