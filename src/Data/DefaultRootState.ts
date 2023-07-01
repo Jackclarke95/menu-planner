@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { User } from "firebase/auth";
 import { Action } from "./Reducers";
-import { MealPlan, Recipe } from "./Types";
+import { WeeklyMealPlan, Recipe } from "./Types";
 
 /** Interface detailing the Default Root State */
 declare module "react-redux" {
@@ -15,7 +15,9 @@ declare module "react-redux" {
 
     recipes: { isLoading: true } | { isLoading: false; data: Recipe[] };
 
-    mealPlans: { isLoading: true } | { isLoading: false; data: MealPlan[] };
+    weeklyMealPlans:
+      | { isLoading: true }
+      | { isLoading: false; data: WeeklyMealPlan[] };
   }
 
   // Declare dispatcher to take our root provider's action type

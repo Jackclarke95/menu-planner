@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { Recipe } from "../../Data/Types";
 import DataHelper from "../../Helpers/DataHelper";
 import BasePage from "./BasePage";
+import { MealType } from "../../Data/Enums";
 
 // Create styles
 const styles = StyleSheet.create({
@@ -58,10 +59,14 @@ const styles = StyleSheet.create({
 // Create Document Component
 const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
   let breakfasts = recipes.filter((recipe) =>
-    recipe.meal.includes("Breakfast")
+    recipe.mealType.includes(MealType.Breakfast)
   );
-  let lunches = recipes.filter((recipe) => recipe.meal.includes("Lunch"));
-  let dinners = recipes.filter((recipe) => recipe.meal.includes("Dinner"));
+  let lunches = recipes.filter((recipe) =>
+    recipe.mealType.includes(MealType.Lunch)
+  );
+  let dinners = recipes.filter((recipe) =>
+    recipe.mealType.includes(MealType.Dinner)
+  );
 
   const Row = (day: string) => (
     <View style={styles.row}>

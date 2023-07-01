@@ -15,7 +15,7 @@ export type Action =
     }
   | {
       type: "SetMealPlans";
-      mealPlans: DefaultRootState["mealPlans"];
+      mealPlans: DefaultRootState["weeklyMealPlans"];
     };
 
 /** Initial application state */
@@ -28,7 +28,7 @@ export const initialState: DefaultRootState = {
 
   recipes: { isLoading: true },
 
-  mealPlans: { isLoading: true },
+  weeklyMealPlans: { isLoading: true },
 };
 
 /**
@@ -67,7 +67,7 @@ export const rootReducer: Reducer<DefaultRootState, Action> = (
 
         // Action for setting the Meal Plans
         case "SetMealPlans": {
-          draftState.mealPlans = action.mealPlans;
+          draftState.weeklyMealPlans = action.mealPlans;
 
           break;
         }

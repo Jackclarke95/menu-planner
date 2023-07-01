@@ -18,6 +18,7 @@ import BreakfastIcon from "../../Images/breakfast.png";
 import LunchIcon from "../../Images/sandwich.png";
 import DinnerIcon from "../../Images/restaurant.png";
 import BasePage from "./BasePage";
+import { MealType } from "../../Data/Enums";
 
 const Recipes = () => {
   const navigate = useNavigate();
@@ -25,23 +26,22 @@ const Recipes = () => {
   const recipes = useSelector((state) => state.recipes);
 
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([]);
-  const [menuFilters, setMenuFilters] = useState<string[]>([
-    "Breakfast",
-    "Lunch",
-    "Dinner",
-  ]);
+  const [menuFilters, setMenuFilters] = useState<MealType[]>([]);
   const [timeFilter, setTimeFilter] = useState<number>(0);
 
   useEffect(() => {
     const recipesToFilter = recipes.isLoading ? [] : recipes.data;
 
     setFilteredRecipes(
-      recipesToFilter.filter(
-        (recipe) =>
-          (menuFilters.some((menuFilter) => recipe.meal.includes(menuFilter)) ||
+      recipesToFilter.filter((recipe) => {
+        return (
+          (menuFilters.some((menuFilter) => {
+            return recipe.mealType.includes(menuFilter);
+          }) ||
             menuFilters.length === 0) &&
           (recipe.time <= timeFilter || timeFilter === 0)
-      )
+        );
+      })
     );
   }, [menuFilters, recipes, timeFilter]);
 
@@ -58,13 +58,15 @@ const Recipes = () => {
       ),
     },
     {
-      key: "Meal",
-      name: "Meal",
-      fieldName: "meal",
+      key: "mealType",
+      name: "Type",
+      fieldName: "mealType",
       minWidth: 50,
       onRender: (item: Recipe) => (
         <span onClick={() => navigate(`/recipes/${item.id}`)}>
-          {item.meal.join(", ")}
+          {item.mealType
+            .map((mealType) => mealType[0].toLocaleUpperCase())
+            .join(", ")}
         </span>
       ),
     },
@@ -81,31 +83,25 @@ const Recipes = () => {
     },
   ];
 
-  const onChangeMenuFilter = (meal: string) => {
-    if (menuFilters.includes(meal)) {
-      const newMenuFilters = menuFilters.filter((filter) => filter !== meal);
-      if (newMenuFilters.length === 0) {
-        setMenuFilters(["Breakfast", "Lunch", "Dinner"]);
-      } else {
-        setMenuFilters(menuFilters.filter((filter) => filter !== meal));
-      }
-
-      return;
+  const onChangeMenuFilter = (mealType: MealType) => {
+    if (menuFilters.includes(mealType)) {
+      setMenuFilters(menuFilters.filter((filter) => filter !== mealType));
     } else {
-      setMenuFilters([...menuFilters, meal]);
-
-      return;
+      setMenuFilters([...menuFilters, mealType]);
     }
+
+    return;
   };
 
   const onChangeTimeFilter = (value: number) => {
     setTimeFilter(value);
   };
 
-  const MealFilterIcon: React.FC<{ label: string; icon: string }> = ({
-    label,
-    icon,
-  }) => {
+  const MealFilterIcon: React.FC<{
+    label: string;
+    mealType: MealType;
+    icon: string;
+  }> = ({ label, mealType, icon }) => {
     const disabledIconStyles: IImageStyles = {
       root: {
         opacity: 0.2,
@@ -116,12 +112,12 @@ const Recipes = () => {
     return (
       <Image
         src={icon}
-        alt="Breakfast Icon"
+        alt={`${label} icon`}
         height={60}
         width={50}
         imageFit={ImageFit.contain}
-        styles={menuFilters.includes(label) ? undefined : disabledIconStyles}
-        onClick={() => onChangeMenuFilter(label)}
+        styles={menuFilters.includes(mealType) ? undefined : disabledIconStyles}
+        onClick={() => onChangeMenuFilter(mealType)}
         shouldStartVisible={true}
       />
     );
@@ -136,9 +132,21 @@ const Recipes = () => {
           tokens={{ childrenGap: 10 }}
           verticalAlign="center"
         >
-          <MealFilterIcon icon={BreakfastIcon} label="Breakfast" />
-          <MealFilterIcon icon={LunchIcon} label="Lunch" />
-          <MealFilterIcon icon={DinnerIcon} label="Dinner" />
+          <MealFilterIcon
+            icon={BreakfastIcon}
+            mealType={MealType.Breakfast}
+            label="Breakfast"
+          />
+          <MealFilterIcon
+            icon={LunchIcon}
+            mealType={MealType.Lunch}
+            label="Lunch"
+          />
+          <MealFilterIcon
+            icon={DinnerIcon}
+            mealType={MealType.Dinner}
+            label="Dinner"
+          />
         </Stack>
         <Text styles={{ root: { fontWeight: 600 } }}>Filter by meal</Text>
       </Stack>

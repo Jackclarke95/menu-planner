@@ -6,22 +6,22 @@ import { useNavigate } from "react-router-dom";
 const MealPlanList = () => {
   const navigate = useNavigate();
 
-  const mealPlans = useSelector((state) => state.mealPlans);
+  const weeklyMealPlans = useSelector((state) => state.weeklyMealPlans);
 
   return (
     <BasePage pageTitle="Meal Plans">
-      {mealPlans.isLoading ? (
+      {weeklyMealPlans.isLoading ? (
         <Text>Loading...</Text>
       ) : (
         <Stack tokens={{ childrenGap: 10, padding: 10 }}>
-          {mealPlans.data.map((mealPlan) => {
+          {weeklyMealPlans.data.map((weeklyMealPlan) => {
             return (
               <Stack
-                key={mealPlan.id}
+                key={weeklyMealPlan.id}
                 styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
               >
-                <Text onClick={() => navigate(`/meal-plans/${mealPlan.id}`)}>
-                  {new Date(mealPlan.date).toDateString()}
+                <Text onClick={() => navigate(`/meal-plans/${weeklyMealPlan.id}`)}>
+                  {new Date(weeklyMealPlan.date).toDateString()}
                 </Text>
               </Stack>
             );

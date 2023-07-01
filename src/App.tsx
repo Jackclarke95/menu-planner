@@ -55,21 +55,21 @@ const App = () => {
     });
   });
 
-  onValue(ref(db, "mealPlans"), (snapshot) => {
-    const mealPlanData = snapshot.val();
+  onValue(ref(db, "weeklyMealPlans"), (snapshot) => {
+    const weeklyMealPlanData = snapshot.val();
 
-    const mealPlans = Object.keys(mealPlanData).map((key) => {
-      const mealPlan = mealPlanData[key];
-      mealPlan.id = key;
+    const weeklyMealPlans = Object.keys(weeklyMealPlanData).map((key) => {
+      const weeklyMealPlan = weeklyMealPlanData[key];
+      weeklyMealPlan.id = key;
 
-      return mealPlan;
+      return weeklyMealPlan;
     });
 
     dispatch({
       type: "SetMealPlans",
       mealPlans: {
         isLoading: false,
-        data: mealPlans,
+        data: weeklyMealPlans,
       },
     });
   });

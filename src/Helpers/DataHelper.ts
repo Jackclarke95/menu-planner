@@ -270,4 +270,13 @@ export default class DataHelper {
 
     return weeksOfMonth;
   }
+
+  /**
+   * Takes a string and capitalises the first letter.
+   * @param string The string whose first letter to capitalise.
+   * @returns The string with the first letter capitalised.
+   */
+  public static capitaliseFirstLetter(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 }

@@ -7,26 +7,31 @@ import MealPlanDayCard from "../MealPlanDayCard";
 const MealPlanPage = () => {
   const { mealPlanId } = useParams();
 
-  const mealPlans = useSelector((state) => state.mealPlans);
+  const weeklyMealPlans = useSelector((state) => state.weeklyMealPlans);
 
-  const mealPlan = mealPlans.isLoading
+  const weeklyMealPlan = weeklyMealPlans.isLoading
     ? undefined
-    : mealPlans.data.find((mealPlan) => mealPlan.id === mealPlanId);
+    : weeklyMealPlans.data.find(
+        (weeklyMeanPlan) => weeklyMeanPlan.id === mealPlanId
+      );
 
-  if (!mealPlan) {
+  if (!weeklyMealPlan) {
     return <Text>Meal Plan not found</Text>;
   } else {
+    console.log({ weeklyMealPlan });
+
     return (
-      <BasePage pageTitle={new Date(mealPlan.date).toDateString()}>
+      <BasePage pageTitle={new Date(weeklyMealPlan.date).toDateString()}>
         <Stack styles={{ root: { padding: 10 } }} tokens={{ childrenGap: 10 }}>
-          {mealPlan.recipes.map((recipe, index) => (
-            <Stack
-              key={index}
-              styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
-            >
-              <MealPlanDayCard mealPlanDay={recipe}></MealPlanDayCard>
-            </Stack>
-          ))}
+          <Stack
+            key={weeklyMealPlan.id}
+            styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
+          >
+            <MealPlanDayCard
+              dailyMealPlan={weeklyMealPlan.monday}
+              mealPlanId={weeklyMealPlan.id}
+            ></MealPlanDayCard>
+          </Stack>
         </Stack>
       </BasePage>
     );

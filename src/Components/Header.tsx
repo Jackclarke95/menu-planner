@@ -10,7 +10,7 @@ const Header = () => {
 
     navigator.clipboard.writeText(key!);
 
-    console.log(key);
+    console.info(key);
   };
 
   return (

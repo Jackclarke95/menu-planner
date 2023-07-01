@@ -1,3 +1,5 @@
+import { MealType } from "./Enums";
+
 export type Recipe = {
   id: string;
   name: string;
@@ -5,7 +7,7 @@ export type Recipe = {
   ingredients: Ingredient[];
   time: number;
   image?: string;
-  meal: string[];
+  mealType: MealType[];
 };
 
 export type Ingredient = {
@@ -15,23 +17,30 @@ export type Ingredient = {
   alternatives?: Ingredient[];
 };
 
-export type MealPlan = {
+export type WeeklyMealPlan = {
   id: string;
   date: string;
-  recipes: MealPlanDay[];
+  monday: DailyMealPlan;
+  tuesday: DailyMealPlan;
+  wednesday: DailyMealPlan;
+  thursday: DailyMealPlan;
+  friday: DailyMealPlan;
+  saturday: DailyMealPlan;
+  sunday: DailyMealPlan;
 };
 
-export type MealPlanDay = {
+export type DailyMealPlan = {
   date: string;
-  breakfast: MealPlanMeal;
-  lunch: MealPlanMeal;
-  dinner: MealPlanMeal;
+  breakfast: Meal;
+  lunch: Meal;
+  dinner: Meal;
+};
+
+export type Meal = {
+  recipeId: string;
+  isLocked: boolean;
+  mealType: MealType;
   requirements?: {
     maxTime?: number;
   };
-};
-
-export type MealPlanMeal = {
-  recipeId: string;
-  isLocked: boolean;
 };

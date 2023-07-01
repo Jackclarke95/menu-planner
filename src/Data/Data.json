@@ -44,7 +44,7 @@
       "description": "This one-pan plant-based tray bake is packed with umami flavour! While your veggies roast in the oven, you'll stir up a sticky glaze to drizzle over your meat-free chicken bites, veggies, and rice. Yum!",
       "time": 35,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/2909_Meat-Free-Chicken-Teriyaki-Tray-Bake-2174-1596470339623-x1500.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2namBIvVcFltyjZWc": {
       "ingredients": [
@@ -62,7 +62,7 @@
       "description": "This quick, umami-rich udon is tossed together in 10 with some of our chefs' favourite flavours, like sticky and sweet chilli jam, soy sauce and sesame oil. Top with crispy onions to serve.",
       "time": 10,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/3225_Sweet-Chilli-_-Sesame-Meat-Free-Chicken-Udon-2030-1614686615651-x1500.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2sSFYA6Gcup5R-_Eq": {
       "ingredients": [
@@ -81,7 +81,7 @@
       "description": "This simple one-pan dish is packed with vegetables. You'll stir green beans, spinach and Tenderstem broccoli into a light, lemony sauce with orzo, and garnish with pine nut and seed mix to serve. Primo!",
       "time": 25,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/1504_Orzo-Primavera-With-Tenderstem-Spinach--Green-Beans-1265-1593512701671-x1500.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2sSxQrxbBTpTnk2Ya": {
       "ingredients": [
@@ -100,10 +100,10 @@
         { "name": "Spaghetti", "quantity": "190g" }
       ],
       "name": "Simple Perfect Meat-Free Mince  Spag Bol",
-      "description": "Brilliant for weeknights and slurp-tastic for adults and children alike. Rustle up a simply perfect spag bol with a rich meat-free mince sauce topped with lashings of melty cheddar and basil. Dinner is served!",
+      "description": "Brilliant for weeknights and slurp-tastic for adults and children alike. Rustle up a simply perfect spag bol with a rich meat-free mince sauce topped with lashings of melty cheddar and basil. dinner is served!",
       "time": 25,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/R-2523-2-Simply-Perfect-Meat-Free-Spag-Bol-2661-1586948844406-x200.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2sTce6xa-V9IgqNy6": {
       "ingredients": [
@@ -124,7 +124,7 @@
       "description": "This speedy supper is perfect for a relaxed evening. You'll stir up a bright, zesty garlic and courgette sauce before tossing in linguine and creamy goats' cheese to finish. Buon appetito!",
       "time": 20,
       "image": "https://production-media.gousto.co.uk/cms/recipe-step-image/1573.-step-7-1592925242278-x1500.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2wRkKZTuEf1YigkzQ": {
       "ingredients": [
@@ -147,7 +147,7 @@
       "description": "Whip up a plant-based twist on a takeaway classic. You'll crisp tofu in a pan with spring onion and pepper, before smothering in a sticky sauce and serving with rice and sesame seeds. Wok on!",
       "time": 35,
       "image": "https://production-media.gousto.co.uk/cms/mood-image/2308_Sticky-Sweet-n-Sour-Glazed-Tofu--7032-1610454494730-x1500.jpg",
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2wSEE4fLzt4GIxaem": {
       "ingredients": [
@@ -159,7 +159,7 @@
       "name": "Scrambled Egg on Toast",
       "description": "Jack's famous scrambled egg on toast!",
       "time": 15,
-      "meal": ["Breakfast", "Lunch"]
+      "mealType": ["breakfast", "lunch"]
     },
     "-NZ2wSjyDlThR5Sdmn6Y": {
       "ingredients": [
@@ -169,7 +169,7 @@
       "name": "Boiled Egg and Soldiers",
       "description": "Jack's famous Egg and Soldiers!",
       "time": 5,
-      "meal": ["Breakfast"]
+      "mealType": ["breakfast"]
     },
     "-NZ2wTJWGdumSzPT2OCV": {
       "ingredients": [
@@ -181,7 +181,7 @@
       "name": "Hash Brown & Egg Sandwich",
       "description": "Jack's famous hash brown and egg sandwich, oozing with ketchup!",
       "time": 30,
-      "meal": ["Breakfast", "Lunch"]
+      "mealType": ["breakfast", "lunch"]
     },
     "-NZ2wTjuS3mullTBNpIU": {
       "ingredients": [
@@ -200,7 +200,7 @@
       "name": "Meat-Free Chicken, Brie & Cranberry Mayo Club Sandwich",
       "description": "Emmie's favourite club sandwich, dripping with cranberry mayonnaise!",
       "time": 20,
-      "meal": ["Lunch"]
+      "mealType": ["lunch"]
     },
     "-NZ2wUKWz7e5fnxQlDU0": {
       "ingredients": [
@@ -210,7 +210,7 @@
       "name": "Soup",
       "description": "Simple, quick, and easy soup!",
       "time": 5,
-      "meal": ["Lunch"]
+      "mealType": ["lunch"]
     },
     "-NZ2wUlSR53G9EoHQsfY": {
       "ingredients": [
@@ -232,7 +232,7 @@
       "name": "Meat-Free Slice, Cucumber, Tomato, Lettuce & Mayo Wraps",
       "description": "Simple, yet tasty plant-based wraps!",
       "time": 10,
-      "meal": ["Lunch"]
+      "mealType": ["lunch"]
     },
     "-NZ2wVKDFlugxKOQdyqa": {
       "ingredients": [
@@ -244,7 +244,7 @@
       "name": "Porridge",
       "description": "An easy, tasty, and healthy breakfast to start the day!",
       "time": 10,
-      "meal": ["Breakfast"]
+      "mealType": ["breakfast"]
     },
     "-NZ2wVpjsrUc9NcX5SO4": {
       "ingredients": [
@@ -258,7 +258,7 @@
       "name": "Toast",
       "description": "Simple, quick, and easy toast!",
       "time": 5,
-      "meal": ["Breakfast"]
+      "mealType": ["breakfast"]
     },
     "-NZ2wWJLDu7zO6nCjd2J": {
       "ingredients": [
@@ -270,7 +270,7 @@
       "name": "Avocado and Fried Egg on Toast",
       "description": "A mildly spicy take on the classic avocado and egg on toast!",
       "time": 15,
-      "meal": ["Breakfast"]
+      "mealType": ["breakfast"]
     },
     "-NZ2wXC3vNC-0LMNjla2": {
       "ingredients": [
@@ -280,7 +280,7 @@
       "name": "Tortellini",
       "description": "Our favourite easy dinner for when speed is of the essence!",
       "time": 5,
-      "meal": ["Dinner"]
+      "mealType": ["dinner"]
     },
     "-NZ2wXvZ9Y4WBd-sP5ey": {
       "ingredients": [
@@ -293,7 +293,7 @@
       "name": "Tortilla Pizza",
       "description": "A Tortilla-based spin on the classic pizza!",
       "time": 20,
-      "meal": ["Lunch"]
+      "mealType": ["lunch"]
     },
     "-NZ2wYpxblj_3FxqkOUf": {
       "ingredients": [
@@ -314,7 +314,7 @@
       "name": "Jacket Potato",
       "description": "The classic jacket potato, with a variety of toppings to choose from!",
       "time": 45,
-      "meal": ["Lunch"]
+      "mealType": ["lunch"]
     },
     "-NZ2wZJHVmWIyul5F_K0": {
       "ingredients": [
@@ -325,63 +325,34 @@
       "name": "Beans on Toast",
       "description": "The British Classic!",
       "time": 5,
-      "meal": ["Breakfast", "Lunch"]
+      "mealType": ["breakfast", "lunch"]
     }
   },
-  "mealPlans": {
+  "weeklyMealPlans": {
     "-NZFpKXlkz0_-S970Irq": {
       "date": "2023-07-03",
-      "recipes": {
-        "0": {
-          "date": "2023-07-03",
-          "breakfast": { "recipeId": "", "isLocked": false },
-          "lunch": { "recipeId": "-NZ2wUKWz7e5fnxQlDU0", "isLocked": false },
-          "dinner": { "recipeId": "-NYz7lf5m7Cqq5eGC5QT", "isLocked": true }
-        },
-        "1": {
-          "date": "2023-07-04",
-          "breakfast": {
-            "recipeId": "-NZ2wSEE4fLzt4GIxaem",
-            "isLocked": false
-          },
-          "lunch": { "recipeId": "", "isLocked": false },
-          "dinner": { "recipeId": "-NZ2sSxQrxbBTpTnk2Ya", "isLocked": false }
-        },
-        "2": {
-          "date": "2023-07-05",
-          "breakfast": { "recipeId": "", "isLocked": false },
-          "lunch": { "recipeId": "", "isLocked": false },
-          "dinner": { "recipeId": "-NZ2namBIvVcFltyjZWc", "isLocked": false },
+      "monday": {
+        "date": "2023-07-03",
+        "breakfast": {
+          "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
+          "mealType": "breakfast",
+          "isLocked": false,
           "requirements": {
-            "maxTime": 20
+            "maxTime": 30
           }
         },
-        "3": {
-          "date": "2023-07-06",
-          "breakfast": { "recipeId": "-NZ2wSEE4fLzt4GIxaem", "isLocked": true },
-          "lunch": { "recipeId": "-NZ2wUlSR53G9EoHQsfY", "isLocked": true },
-          "dinner": { "recipeId": "", "isLocked": true }
-        },
-        "4": {
-          "date": "2023-07-07",
-          "breakfast": { "recipeId": "", "isLocked": false },
-          "lunch": { "recipeId": "", "isLocked": false },
-          "dinner": { "recipeId": "", "isLocked": false }
-        },
-        "5": {
-          "date": "2023-07-08",
-          "breakfast": { "recipeId": "", "isLocked": true },
-          "lunch": { "recipeId": "-NZ2wTjuS3mullTBNpIU", "isLocked": true },
-          "dinner": { "recipeId": "", "isLocked": false },
+        "lunch": {
+          "recipeId": "-NZ2wZJHVmWIyul5F_K0",
+          "mealType": "lunch",
+          "isLocked": true,
           "requirements": {
-            "maxTime": 45
+            "maxTime": 15
           }
         },
-        "6": {
-          "date": "2023-07-09",
-          "breakfast": { "recipeId": "", "isLocked": false },
-          "lunch": { "recipeId": "", "isLocked": false },
-          "dinner": { "recipeId": "-NZ2sTce6xa-V9IgqNy6", "isLocked": false },
+        "dinner": {
+          "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
+          "mealType": "dinner",
+          "isLocked": false,
           "requirements": {
             "maxTime": 45
           }
