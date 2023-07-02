@@ -18,13 +18,9 @@ const MealPlanPage = () => {
   if (!weeklyMealPlan) {
     return <Text>Meal Plan not found</Text>;
   } else {
-    console.log({ weeklyMealPlan });
-
     const dailyMealPlans = weeklyMealPlan.dailyMealPlans
       .slice()
       .sort((a, b) => a.date.localeCompare(b.date));
-
-    console.log({ dailyMealPlans });
 
     return (
       <BasePage pageTitle={new Date(weeklyMealPlan.startDate).toDateString()}>

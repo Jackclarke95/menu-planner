@@ -110,8 +110,6 @@ const MealPlanDayCard: React.FC<{
           recipe.time <= meal.requirements?.maxTime)
     );
 
-    console.log("applicable recipes:", applicableRecipes.length);
-
     const newRecipe = DataHelper.getRandomFromArray(applicableRecipes);
 
     return newRecipe;
@@ -146,11 +144,21 @@ const MealPlanDayCard: React.FC<{
   const onClickRefreshDay = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
     e.stopPropagation();
 
+    if (isLocked) {
+      return;
+    }
+
     ["breakfast", "lunch", "dinner"].forEach((mealType) => {
       const meal = dailyMealPlan[mealType];
 
+      console.log(meal);
+
       if (!meal) {
         throw new Error(`Meal not found for meal type ${mealType}`);
+      }
+
+      if (meal.isLocked) {
+        return;
       }
 
       const newRecipe = getApplicableRecipe(
@@ -169,8 +177,6 @@ const MealPlanDayCard: React.FC<{
     });
   };
 
-  console.log({ dailyMealPlan });
-
   return (
     <Stack>
       <Stack
@@ -180,7 +186,11 @@ const MealPlanDayCard: React.FC<{
       >
         <Text>{DataHelper.getWeekdayName(dailyMealPlan.date)}</Text>
         <Stack horizontal verticalAlign="center" tokens={{ childrenGap: 10 }}>
-          <Icon iconName="SyncOccurence" onClick={onClickRefreshDay} />
+          <Icon
+            iconName="SyncOccurence"
+            onClick={onClickRefreshDay}
+            styles={isLocked ? { root: { opacity: 0.3 } } : undefined}
+          />
           <Icon
             iconName={isLocked ? "Lock" : "Unlock"}
             onClick={onClickLockDay}
