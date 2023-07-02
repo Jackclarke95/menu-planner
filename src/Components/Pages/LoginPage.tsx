@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 
-import { auth } from "../../App";
+import { firebaseAuth } from "../../App";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { Image, Stack } from "@fluentui/react";
 
@@ -8,7 +8,7 @@ const googleProvider = new GoogleAuthProvider();
 
 export const logOut = async () => {
   try {
-    await signOut(auth).then(() => {
+    await signOut(firebaseAuth).then(() => {
       window.location.reload();
     });
   } catch (err) {
@@ -16,10 +16,10 @@ export const logOut = async () => {
   }
 };
 
-const LoginPage = () => {
+const LoginPage: React.FC<{ loginAllowed: boolean }> = ({ loginAllowed }) => {
   const signInWithGoogle = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
+      await signInWithPopup(firebaseAuth, googleProvider);
     } catch (err) {
       console.error(err);
     }
@@ -35,7 +35,8 @@ const LoginPage = () => {
       <Image
         src={process.env.PUBLIC_URL + "logo512.png"}
         height={256}
-        onClick={signInWithGoogle}
+        onClick={loginAllowed ? signInWithGoogle : undefined}
+        shouldStartVisible
       />
     </Stack>
   );

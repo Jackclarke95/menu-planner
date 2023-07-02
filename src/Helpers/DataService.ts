@@ -1,9 +1,9 @@
 import { DatabaseReference, push, ref } from "firebase/database";
-import { db } from "../App";
+import { firebaseDb } from "../App";
 
 export default class DataService {
   public static generateKey(): string | null {
-    const testRef = ref(db, "test");
+    const testRef = ref(firebaseDb, "test");
 
     const key = push(testRef).key;
 
@@ -13,7 +13,7 @@ export default class DataService {
   public static async addIngredient(
     ingredient: string
   ): Promise<DatabaseReference> {
-    const ingredientsRef = ref(db, "ingredients");
+    const ingredientsRef = ref(firebaseDb, "ingredients");
 
     return await push(ingredientsRef, { name: ingredient });
   }

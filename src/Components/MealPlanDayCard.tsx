@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { MealType } from "../Data/Enums";
 import { ref, update } from "firebase/database";
-import { db } from "../App";
+import { firebaseDb } from "../App";
 
 const MealPlanDayCard: React.FC<{
   dailyMealPlan: DailyMealPlan;
@@ -44,7 +44,7 @@ const MealPlanDayCard: React.FC<{
     const [isLocked, setIsLocked] = useState<boolean>(meal?.isLocked ?? false);
 
     const mealRef = ref(
-      db,
+      firebaseDb,
       `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
     );
 
@@ -125,7 +125,7 @@ const MealPlanDayCard: React.FC<{
       }
 
       const mealRef = ref(
-        db,
+        firebaseDb,
         `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
       );
 
@@ -167,7 +167,7 @@ const MealPlanDayCard: React.FC<{
       );
 
       const mealRef = ref(
-        db,
+        firebaseDb,
         `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
       );
 

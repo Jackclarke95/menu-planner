@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { getDatabase, onValue, ref } from "firebase/database";
 import { initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Components/Pages/LoginPage";
@@ -28,15 +29,15 @@ export const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-export const db = getDatabase();
-export const auth = getAuth();
+export const firebaseDb = getDatabase();
+export const firebaseAuth = getAuth();
 
 const App = () => {
   const dispatch = useDispatch();
 
-  const authUser = useSelector((state) => state.authUser);
+  const [user, loading, error] = useAuthState(firebaseAuth);
 
-  onValue(ref(db, "recipes"), (snapshot) => {
+  onValue(ref(firebaseDb, "recipes"), (snapshot) => {
     const recipeData = snapshot.val();
 
     const recipes = Object.keys(recipeData).map((key) => {
@@ -55,7 +56,7 @@ const App = () => {
     });
   });
 
-  onValue(ref(db, "weeklyMealPlans"), (snapshot) => {
+  onValue(ref(firebaseDb, "weeklyMealPlans"), (snapshot) => {
     const weeklyMealPlanData = snapshot.val();
 
     const weeklyMealPlans = Object.keys(weeklyMealPlanData).map((key) => {
@@ -85,40 +86,35 @@ const App = () => {
     });
   });
 
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      dispatch({
-        type: "SetAuthUser",
-        authUser: user,
-      });
-    }
-  });
+  if (loading) {
+    return <LoginPage loginAllowed={false} />;
+  } else if (user) {
+    dispatch({
+      type: "SetAuthUser",
+      authUser: user,
+    });
 
-  return (
-    <Stack verticalFill>
-      {authUser ? (
-        <BrowserRouter>
-          <Header />
-          <Stack verticalFill>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/recipes" element={<Recipes />} />
-              <Route path="/recipes/:recipeId" element={<RecipePage />} />
-              <Route path="/pdf-test-page" element={<PdfTestPage />} />
-              <Route path="/meal-plans" element={<MealPlanList />} />
-              <Route
-                path="/meal-plans/:mealPlanId"
-                element={<MealPlanPage />}
-              />
-            </Routes>
-          </Stack>
-          <Footer />
-        </BrowserRouter>
-      ) : (
-        <LoginPage />
-      )}
-    </Stack>
-  );
+    return (
+      <BrowserRouter>
+        <Header />
+        <Stack verticalFill>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/recipes" element={<Recipes />} />
+            <Route path="/recipes/:recipeId" element={<RecipePage />} />
+            <Route path="/pdf-test-page" element={<PdfTestPage />} />
+            <Route path="/meal-plans" element={<MealPlanList />} />
+            <Route path="/meal-plans/:mealPlanId" element={<MealPlanPage />} />
+          </Routes>
+        </Stack>
+        <Footer />
+      </BrowserRouter>
+    );
+  } else if (error) {
+    return <div>There was an authentication error.</div>;
+  } else {
+    return <LoginPage loginAllowed={true} />;
+  }
 };
 
 export default App;
