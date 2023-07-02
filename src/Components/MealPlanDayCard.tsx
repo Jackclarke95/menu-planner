@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { MealType } from "../Data/Enums";
 import { ref, update } from "firebase/database";
 import { firebaseDb } from "../App";
-import MealLine from "./Pages/MealLine";
+import MealLine from "./MealLine";
 
 const MealPlanDayCard: React.FC<{
   dailyMealPlan: DailyMealPlan;
@@ -46,6 +46,32 @@ const MealPlanDayCard: React.FC<{
 
   const onChangeIsExpanded = () => {
     setIsExpanded(!isExpanded);
+  };
+
+  const onClickDisableDay = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
+    e.stopPropagation();
+    ["breakfast", "lunch", "dinner"].forEach((mealType) => {
+      const meal = dailyMealPlan[mealType];
+
+      if (!meal) {
+        throw new Error(`Meal not found for meal type ${mealType}`);
+      }
+      const mealRef = ref(
+        firebaseDb,
+        `/weeklyMealPlans/${weeklyMealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
+      );
+
+      if (mealsDisabled) {
+        update(mealRef, {
+          isDisabled: false,
+        });
+      } else {
+        update(mealRef, {
+          isDisabled: true,
+          recipeId: null,
+        });
+      }
+    });
   };
 
   const onClickLockDay = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
@@ -88,13 +114,11 @@ const MealPlanDayCard: React.FC<{
     ["breakfast", "lunch", "dinner"].forEach((mealType) => {
       const meal = dailyMealPlan[mealType];
 
-      console.log(meal);
-
       if (!meal) {
         throw new Error(`Meal not found for meal type ${mealType}`);
       }
 
-      if (meal.isLocked) {
+      if (meal.isLocked || meal.isDisabled) {
         return;
       }
 
@@ -124,7 +148,7 @@ const MealPlanDayCard: React.FC<{
       >
         <Text>{DataHelper.getWeekdayName(dailyMealPlan.date)}</Text>
         <Stack horizontal verticalAlign="center" tokens={{ childrenGap: 10 }}>
-          <Icon iconName={"StatusCircleBlock"} onClick={onClickLockDay} />
+          <Icon iconName="Blocked" onClick={onClickDisableDay} />
           <Icon
             iconName="SyncOccurence"
             onClick={onClickRefreshDay}

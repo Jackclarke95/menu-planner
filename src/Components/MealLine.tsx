@@ -1,10 +1,10 @@
 import { Stack, Text, Depths, Icon } from "@fluentui/react";
 import { ref, update } from "firebase/database";
 import { useEffect, useState } from "react";
-import { firebaseDb } from "../../App";
-import { MealType } from "../../Data/Enums";
-import DataHelper from "../../Helpers/DataHelper";
-import { DailyMealPlan } from "../../Data/Types";
+import { firebaseDb } from "../App";
+import { MealType } from "../Data/Enums";
+import DataHelper from "../Helpers/DataHelper";
+import { DailyMealPlan } from "../Data/Types";
 import { useSelector } from "react-redux";
 
 const MealLine: React.FC<{
@@ -54,6 +54,7 @@ const MealLine: React.FC<{
 
     update(mealRef, {
       isDisabled: newValue,
+      recipeId: null,
     });
 
     setIsDisabled(newValue);
@@ -87,8 +88,6 @@ const MealLine: React.FC<{
     });
   };
 
-  console.log(dailyMealPlan);
-
   return (
     <Stack styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}>
       <Stack horizontal horizontalAlign="space-between">
@@ -97,7 +96,7 @@ const MealLine: React.FC<{
         </Text>
         <Stack horizontal tokens={{ childrenGap: 10 }}>
           <Icon
-            iconName="StatusCircleBlock"
+            iconName="Blocked"
             onClick={onClickDisableMeal}
             styles={{ root: { opacity: isDisabled ? 0.3 : 1 } }}
           />
@@ -114,7 +113,7 @@ const MealLine: React.FC<{
         </Stack>
       </Stack>
       <Text styles={{ root: { opacity: isDisabled ? 0.3 : 1 } }}>
-        {recipe?.name ?? "Unselected"}
+        {recipe?.name ?? "No recipe selected"}
       </Text>
     </Stack>
   );

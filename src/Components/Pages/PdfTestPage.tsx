@@ -15,49 +15,50 @@ import DataHelper from "../../Helpers/DataHelper";
 import BasePage from "./BasePage";
 import { MealType } from "../../Data/Enums";
 
-// Create styles
-const styles = StyleSheet.create({
-  page: {
-    padding: 10,
-    flexDirection: "column",
-    backgroundColor: "#E4E4E4",
-  },
-  section: {
-    margin: 10,
-    flexDirection: "column",
-    alignContent: "space-between",
-    width: "100%",
-  },
-  row: {
-    padding: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-  },
-  dayTitle: {
-    marginRight: 25,
-    fontSize: 16,
-    width: "17%",
-  },
-  mealContainer: {
-    padding: 5,
-    border: "1px solid black",
-    flexDirection: "column",
-    flexGrow: 1,
-    width: "30%",
-    height: "100%",
-  },
-  mealTitle: {
-    fontSize: 14,
-    paddingBottom: 5,
-  },
-  mealContents: {
-    fontSize: 12,
-  },
-});
 
 // Create Document Component
 const MyDocument: React.FC<{ recipes: Recipe[] }> = ({ recipes }) => {
+  // Create styles
+  const styles = StyleSheet.create({
+    page: {
+      padding: 10,
+      flexDirection: "column",
+      backgroundColor: "#E4E4E4",
+    },
+    section: {
+      margin: 10,
+      flexDirection: "column",
+      alignContent: "space-between",
+      width: "100%",
+    },
+    row: {
+      padding: 10,
+      flexDirection: "row",
+      alignItems: "center",
+      width: "100%",
+    },
+    dayTitle: {
+      marginRight: 25,
+      fontSize: 16,
+      width: "17%",
+    },
+    mealContainer: {
+      padding: 5,
+      border: "1px solid black",
+      flexDirection: "column",
+      flexGrow: 1,
+      width: "30%",
+      height: "100%",
+    },
+    mealTitle: {
+      fontSize: 14,
+      paddingBottom: 5,
+    },
+    mealContents: {
+      fontSize: 12,
+    },
+  });
+
   let breakfasts = recipes.filter((recipe) =>
     recipe.mealType.includes(MealType.Breakfast)
   );

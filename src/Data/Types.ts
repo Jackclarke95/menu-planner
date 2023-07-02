@@ -39,7 +39,7 @@ export type DailyMealPlan = {
 };
 
 export type Meal = {
-  recipeId: string;
+  recipeId?: string;
   isLocked: boolean;
   isDisabled: boolean;
   mealType: MealType;
