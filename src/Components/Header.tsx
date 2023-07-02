@@ -1,16 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { logOut } from "./Pages/LoginPage";
-import DataService from "../Helpers/DataService";
-import { Icon, Stack, useTheme } from "@fluentui/react";
+import { Icon, Image, Stack, useTheme } from "@fluentui/react";
 
 const Header = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
-  const onClickGenerateKey = () => {
-    const key = DataService.generateKey();
-
-    navigator.clipboard.writeText(key!);
-
-    console.info(key);
+  const onClickHomeIcon = () => {
+    navigate("/");
   };
 
   return (
@@ -31,15 +28,11 @@ const Header = () => {
         styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}
         onClick={() => window.history.back()}
       />
-      {window.location.hostname === "localhost" && (
-        <Icon
-          iconName="Lock"
-          styles={{
-            root: { fontSize: 35, color: theme.palette.themeTertiary },
-          }}
-          onClick={onClickGenerateKey}
-        />
-      )}
+      <Image
+        src={process.env.PUBLIC_URL + "logo192.png"}
+        height={32}
+        onClick={onClickHomeIcon}
+      />
       <Icon
         iconName="SignOut"
         styles={{ root: { fontSize: 35, color: theme.palette.themeTertiary } }}

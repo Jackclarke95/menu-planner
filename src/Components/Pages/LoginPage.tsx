@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 
 import { auth } from "../../App";
 import { signInWithPopup, signOut } from "firebase/auth";
-import { Icon, PrimaryButton, Stack, Text, useTheme } from "@fluentui/react";
+import { Image, Stack } from "@fluentui/react";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -17,8 +17,6 @@ export const logOut = async () => {
 };
 
 const LoginPage = () => {
-  const theme = useTheme();
-
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -34,14 +32,11 @@ const LoginPage = () => {
       styles={{ root: { height: "100vh" } }}
       tokens={{ childrenGap: 20 }}
     >
-      <Icon
-        iconName="EatDrink"
-        styles={{ root: { fontSize: 96, color: theme.palette.accent } }}
+      <Image
+        src={process.env.PUBLIC_URL + "logo512.png"}
+        height={256}
+        onClick={signInWithGoogle}
       />
-      <Text variant="xxLargePlus">Jemily's Menu Planner</Text>
-      <PrimaryButton onClick={signInWithGoogle}>
-        Sign In with Google
-      </PrimaryButton>
     </Stack>
   );
 };
