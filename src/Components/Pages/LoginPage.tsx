@@ -34,7 +34,7 @@ const LoginPage: React.FC<{ loginAllowed: boolean }> = ({ loginAllowed }) => {
     >
       <Image
         src={process.env.PUBLIC_URL + "logo512.png"}
-        height={250}
+        height={255}
         onClick={loginAllowed ? signInWithGoogle : undefined}
         shouldStartVisible
       />
