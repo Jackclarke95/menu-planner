@@ -335,48 +335,141 @@
         "monday": {
           "date": "2023-07-03",
           "breakfast": {
-            "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
-            "mealType": "breakfast",
-            "isLocked": false,
-            "requirements": {
-              "maxTime": 30
-            }
-          },
-          "lunch": {
-            "recipeId": "-NZ2wZJHVmWIyul5F_K0",
-            "mealType": "lunch",
-            "isLocked": true,
-            "requirements": {
-              "maxTime": 15
-            }
-          },
-          "dinner": {
-            "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
-            "mealType": "dinner",
-            "isLocked": false,
-            "requirements": {
-              "maxTime": 45
-            }
-          }
-        },
-        "tuesday": {
-          "date": "2023-07-04",
-          "breakfast": {
-            "recipeId": "-NZ2wWJLDu7zO6nCjd2J",
+            "recipeId": "-NYz7lf5m7Cqq5eGC5QT",
             "mealType": "breakfast",
             "isLocked": false
           },
           "lunch": {
             "recipeId": "-NZ2wZJHVmWIyul5F_K0",
             "mealType": "lunch",
-            "isLocked": true
+            "isLocked": false
           },
           "dinner": {
             "recipeId": "-NZ2sSxQrxbBTpTnk2Ya",
             "mealType": "dinner",
-            "isLocked": false,
+            "isLocked": false
+          }
+        },
+        "tuesday": {
+          "date": "2023-07-04",
+          "breakfast": {
+            "recipeId": "",
+            "mealType": "breakfast",
+            "isLocked": false
+          },
+          "lunch": {
+            "recipeId": "",
+            "mealType": "lunch",
+            "isLocked": false
+          },
+          "dinner": {
+            "recipeId": "-NZ2sSFYA6Gcup5R-_Eq",
+            "mealType": "dinner",
+            "isLocked": true,
             "requirements": {
               "maxTime": 20
+            }
+          }
+        },
+        "wednesday": {
+          "date": "2023-07-05",
+          "breakfast": {
+            "recipeId": "-NZ2wTJWGdumSzPT2OCV",
+            "mealType": "breakfast",
+            "isLocked": false
+          },
+          "lunch": {
+            "recipeId": "-NZ2wUKWz7e5fnxQlDU0",
+            "mealType": "lunch",
+            "isLocked": true
+          },
+          "dinner": {
+            "recipeId": "-NZ2namBIvVcFltyjZWc",
+            "mealType": "dinner",
+            "isLocked": true,
+            "requirements": {
+              "maxTime": 25
+            }
+          }
+        },
+        "thursday": {
+          "date": "2023-07-06",
+          "breakfast": {
+            "recipeId": "-NZ2wUlSR53G9EoHQsfY",
+            "mealType": "breakfast",
+            "isLocked": true
+          },
+          "lunch": {
+            "recipeId": "",
+            "mealType": "lunch",
+            "isLocked": true
+          },
+          "dinner": {
+            "recipeId": "",
+            "mealType": "dinner",
+            "isLocked": true,
+            "requirements": {
+              "maxTime": 15
+            }
+          }
+        },
+        "friday": {
+          "date": "2023-07-07",
+          "breakfast": {
+            "recipeId": "",
+            "mealType": "breakfast",
+            "isLocked": false
+          },
+          "lunch": {
+            "recipeId": "",
+            "mealType": "lunch",
+            "isLocked": false
+          },
+          "dinner": {
+            "recipeId": "NYz7lf5m7Cqq5eGC5QT",
+            "mealType": "dinner",
+            "isLocked": false
+          }
+        },
+        "saturday": {
+          "date": "2023-07-08",
+          "breakfast": {
+            "recipeId": "-NZ2wSjyDlThR5Sdmn6Y",
+            "mealType": "breakfast",
+            "isLocked": false
+          },
+          "lunch": {
+            "recipeId": "",
+            "mealType": "lunch",
+            "isLocked": false
+          },
+          "dinner": {
+            "recipeId": "",
+            "mealType": "dinner",
+            "isLocked": false,
+            "requirements": {
+              "maxTime": 10
+            }
+          }
+        },
+        "sunday": {
+          "date": "2023-07-09",
+          "breakfast": {
+            "recipeId": "-NZ2wSEE4fLzt4GIxaem",
+            "mealType": "breakfast",
+            "isLocked": true
+          },
+          "lunch": {
+            "recipeId": "",
+            "mealType": "lunch",
+            "isLocked": false
+          },
+          "dinner": {
+            "recipeId": "",
+            "mealType": "dinner",
+            "isLocked": true,
+            "requirements": {
+              "maxTime": 30
             }
           }
         }
