@@ -3,15 +3,19 @@ import { Stack, Text } from "@fluentui/react";
 const BasePage: React.FC<{
   children: React.ReactNode;
   pageTitle: string;
-  noPadding?: boolean;
-}> = ({ children, pageTitle, noPadding = false }) => {
+}> = ({ children, pageTitle }) => {
   return (
     <Stack
       styles={{
         root: {
           overflowY: "auto",
-          padding: noPadding ? 0 : 20,
-          paddingTop: noPadding ? 60 : 80,
+          paddingTop: 20,
+          paddingLeft: 10,
+          paddingRight: 10,
+          position: "absolute",
+          top: 60,
+          bottom: 41,
+          width: "100%",
         },
       }}
       tokens={{ childrenGap: 10 }}

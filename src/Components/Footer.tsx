@@ -10,6 +10,9 @@ const Footer = () => {
         root: {
           padding: "10px 20px",
           backgroundColor: theme.palette.neutralLight,
+          position: "fixed",
+          bottom: 0,
+          width: "100%",
         },
       }}
     >
