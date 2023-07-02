@@ -94,10 +94,18 @@ const App = () => {
       authUser: user,
     });
 
+    const pageContentStyles = {
+      root: {
+        height: "100vh",
+        backgroundColor: "white",
+        overflowX: "auto",
+      },
+    };
+
     return (
       <BrowserRouter>
         <Header />
-        <Stack verticalFill>
+        <Stack styles={pageContentStyles}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/recipes" element={<Recipes />} />

@@ -20,6 +20,9 @@ const Header = () => {
           padding: "10px 20px",
           height: 60,
           backgroundColor: theme.palette.accent,
+          position: "fixed",
+          top: 0,
+          width: "100%",
         },
       }}
     >

@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Ingredient } from "../../Data/Types";
 import { Icon } from "@fluentui/react/lib/Icon";
+import BasePage from "./BasePage";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -22,11 +23,7 @@ const RecipePage = () => {
     : recipes.data.find((recipe) => recipe.id === recipeId);
 
   return (
-    <Stack
-      tokens={{ childrenGap: 10 }}
-      styles={{ root: { padding: 10, overflowY: "auto", height: "100%" } }}
-    >
-      <Text variant="xxLarge">{recipe?.name}</Text>
+    <BasePage pageTitle={recipe?.name ?? ""}>
       {recipe?.image && (
         <Image
           src={recipe?.image}
@@ -39,15 +36,12 @@ const RecipePage = () => {
       <Separator styles={{ root: { fontSize: "larger" } }}>
         Ingredients
       </Separator>
-      <Stack
-        tokens={{ childrenGap: 5 }}
-        styles={{ root: { padding: 5, overflowY: "auto" } }}
-      >
+      <Stack tokens={{ childrenGap: 5 }} styles={{ root: { padding: 5 } }}>
         {recipe?.ingredients.map((ingredient, index) => {
           return <IngredientsCard ingredient={ingredient} key={index} />;
         })}
       </Stack>
-    </Stack>
+    </BasePage>
   );
 };
 

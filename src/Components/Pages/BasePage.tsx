@@ -7,11 +7,11 @@ const BasePage: React.FC<{
 }> = ({ children, pageTitle, noPadding = false }) => {
   return (
     <Stack
-      verticalFill
       styles={{
         root: {
           overflowY: "auto",
           padding: noPadding ? 0 : 20,
+          paddingTop: noPadding ? 60 : 80,
         },
       }}
       tokens={{ childrenGap: 10 }}
