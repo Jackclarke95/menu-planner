@@ -1,3 +1,6 @@
+import { MealType } from "../Data/Enums";
+import { Meal, Recipe } from "../Data/Types";
+
 export default class DataHelper {
   /**
    * Determines if a given date is in the past
@@ -278,5 +281,22 @@ export default class DataHelper {
    */
   public static capitaliseFirstLetter(string: string): string {
     return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  public static getApplicableRecipe(
+    meal: Meal,
+    mealType: MealType,
+    recipes: Recipe[]
+  ) {
+    const applicableRecipes = recipes.filter(
+      (recipe) =>
+        recipe.mealType.includes(mealType) &&
+        (!meal.requirements?.maxTime ||
+          recipe.time <= meal.requirements?.maxTime)
+    );
+
+    const newRecipe = DataHelper.getRandomFromArray(applicableRecipes);
+
+    return newRecipe;
   }
 }

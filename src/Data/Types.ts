@@ -41,6 +41,7 @@ export type DailyMealPlan = {
 export type Meal = {
   recipeId: string;
   isLocked: boolean;
+  isDisabled: boolean;
   mealType: MealType;
   requirements?: {
     maxTime?: number;

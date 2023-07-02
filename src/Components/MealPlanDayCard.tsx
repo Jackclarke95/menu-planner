@@ -1,30 +1,42 @@
-import { Depths, Icon, Stack, Text } from "@fluentui/react";
-import { Meal, DailyMealPlan } from "../Data/Types";
+import { Icon, Stack, Text } from "@fluentui/react";
+import { DailyMealPlan } from "../Data/Types";
 import DataHelper from "../Helpers/DataHelper";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { MealType } from "../Data/Enums";
 import { ref, update } from "firebase/database";
 import { firebaseDb } from "../App";
+import MealLine from "./Pages/MealLine";
 
 const MealPlanDayCard: React.FC<{
   dailyMealPlan: DailyMealPlan;
   mealPlanId: string;
-}> = ({ dailyMealPlan, mealPlanId }) => {
+}> = ({ dailyMealPlan, mealPlanId: weeklyMealPlanId }) => {
   const recipes = useSelector((state) => state.recipes);
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isLocked, setIsLocked] = useState<boolean>(
+  const [mealsLocked, setMealsLocked] = useState<boolean>(
     dailyMealPlan.breakfast.isLocked &&
       dailyMealPlan.lunch.isLocked &&
       dailyMealPlan.dinner.isLocked
   );
+  const [mealsDisabled, setMealsDisabled] = useState<boolean>(
+    dailyMealPlan.breakfast.isDisabled &&
+      dailyMealPlan.lunch.isDisabled &&
+      dailyMealPlan.dinner.isDisabled
+  );
 
   useEffect(() => {
-    setIsLocked(
+    setMealsLocked(
       dailyMealPlan.breakfast.isLocked &&
         dailyMealPlan.lunch.isLocked &&
         dailyMealPlan.dinner.isLocked
+    );
+
+    setMealsDisabled(
+      dailyMealPlan.breakfast.isDisabled &&
+        dailyMealPlan.lunch.isDisabled &&
+        dailyMealPlan.dinner.isDisabled
     );
   }, [dailyMealPlan]);
 
@@ -36,85 +48,6 @@ const MealPlanDayCard: React.FC<{
     setIsExpanded(!isExpanded);
   };
 
-  const MealLine: React.FC<{
-    mealType: MealType;
-  }> = ({ mealType }) => {
-    const meal = dailyMealPlan[mealType];
-
-    const [isLocked, setIsLocked] = useState<boolean>(meal?.isLocked ?? false);
-
-    const mealRef = ref(
-      firebaseDb,
-      `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
-    );
-
-    const onClickLockMeal = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
-      e.stopPropagation();
-
-      const newValue = !isLocked;
-
-      update(mealRef, {
-        isLocked: newValue,
-      });
-
-      setIsLocked(newValue);
-    };
-
-    const recipe = recipes.data.find((recipe) => recipe.id === meal?.recipeId);
-
-    const onClickRefreshMeal = (
-      e: React.MouseEvent<HTMLElement | MouseEvent>
-    ) => {
-      e.stopPropagation();
-      if (meal?.isLocked) {
-        return;
-      }
-
-      if (!meal) {
-        throw new Error(`Meal not found for meal type ${mealType}`);
-      }
-
-      const newRecipe = getApplicableRecipe(meal, mealType);
-
-      update(mealRef, {
-        recipeId: newRecipe.id,
-      });
-    };
-
-    return (
-      <Stack styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}>
-        <Stack horizontal horizontalAlign="space-between">
-          <Text>{DataHelper.capitaliseFirstLetter(mealType)}</Text>
-          <Stack horizontal tokens={{ childrenGap: 10 }}>
-            <Icon
-              iconName="SyncOccurence"
-              onClick={onClickRefreshMeal}
-              styles={isLocked ? { root: { opacity: 0.3 } } : undefined}
-            />
-            <Icon
-              iconName={isLocked ? "Lock" : "Unlock"}
-              onClick={onClickLockMeal}
-            />
-          </Stack>
-        </Stack>
-        <Text>{recipe?.name ?? "Unselected"}</Text>
-      </Stack>
-    );
-  };
-
-  const getApplicableRecipe = (meal: Meal, mealType: MealType) => {
-    const applicableRecipes = recipes.data.filter(
-      (recipe) =>
-        recipe.mealType.includes(mealType) &&
-        (!meal.requirements?.maxTime ||
-          recipe.time <= meal.requirements?.maxTime)
-    );
-
-    const newRecipe = DataHelper.getRandomFromArray(applicableRecipes);
-
-    return newRecipe;
-  };
-
   const onClickLockDay = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
     e.stopPropagation();
     ["breakfast", "lunch", "dinner"].forEach((mealType) => {
@@ -124,12 +57,16 @@ const MealPlanDayCard: React.FC<{
         throw new Error(`Meal not found for meal type ${mealType}`);
       }
 
+      if (meal.isDisabled) {
+        return;
+      }
+
       const mealRef = ref(
         firebaseDb,
-        `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
+        `/weeklyMealPlans/${weeklyMealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
       );
 
-      if (isLocked) {
+      if (mealsLocked) {
         update(mealRef, {
           isLocked: false,
         });
@@ -144,7 +81,7 @@ const MealPlanDayCard: React.FC<{
   const onClickRefreshDay = (e: React.MouseEvent<HTMLElement | MouseEvent>) => {
     e.stopPropagation();
 
-    if (isLocked) {
+    if (mealsLocked) {
       return;
     }
 
@@ -161,14 +98,15 @@ const MealPlanDayCard: React.FC<{
         return;
       }
 
-      const newRecipe = getApplicableRecipe(
+      const newRecipe = DataHelper.getApplicableRecipe(
         meal,
-        mealType.toString() as MealType
+        mealType.toString() as MealType,
+        recipes.data
       );
 
       const mealRef = ref(
         firebaseDb,
-        `/weeklyMealPlans/${mealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
+        `/weeklyMealPlans/${weeklyMealPlanId}/dailyMealPlans/${dailyMealPlan.day}/${mealType}`
       );
 
       update(mealRef, {
@@ -186,13 +124,14 @@ const MealPlanDayCard: React.FC<{
       >
         <Text>{DataHelper.getWeekdayName(dailyMealPlan.date)}</Text>
         <Stack horizontal verticalAlign="center" tokens={{ childrenGap: 10 }}>
+          <Icon iconName={"StatusCircleBlock"} onClick={onClickLockDay} />
           <Icon
             iconName="SyncOccurence"
             onClick={onClickRefreshDay}
-            styles={isLocked ? { root: { opacity: 0.3 } } : undefined}
+            styles={mealsDisabled ? { root: { opacity: 0.3 } } : undefined}
           />
           <Icon
-            iconName={isLocked ? "Lock" : "Unlock"}
+            iconName={mealsLocked ? "Lock" : "Unlock"}
             onClick={onClickLockDay}
           />
           <Icon iconName={isExpanded ? "ChevronUpMed" : "ChevronDownMed"} />
@@ -203,9 +142,21 @@ const MealPlanDayCard: React.FC<{
           tokens={{ childrenGap: 5 }}
           styles={{ root: { paddingTop: 10 } }}
         >
-          <MealLine mealType={MealType.Breakfast} />
-          <MealLine mealType={MealType.Lunch} />
-          <MealLine mealType={MealType.Dinner} />
+          <MealLine
+            mealType={MealType.Breakfast}
+            dailyMealPlan={dailyMealPlan}
+            weeklyMealPlanId={weeklyMealPlanId}
+          />
+          <MealLine
+            mealType={MealType.Lunch}
+            dailyMealPlan={dailyMealPlan}
+            weeklyMealPlanId={weeklyMealPlanId}
+          />
+          <MealLine
+            mealType={MealType.Dinner}
+            dailyMealPlan={dailyMealPlan}
+            weeklyMealPlanId={weeklyMealPlanId}
+          />
         </Stack>
       )}
     </Stack>
