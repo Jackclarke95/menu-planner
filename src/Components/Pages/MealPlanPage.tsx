@@ -32,12 +32,11 @@ const MealPlanPage = () => {
           {dailyMealPlans.map((dailyMealPlan) => {
             return (
               <Stack
-                key={weeklyMealPlan.id}
+                key={dailyMealPlan.date}
                 styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
               >
                 <MealPlanDayCard
                   dailyMealPlan={dailyMealPlan}
-                  key={dailyMealPlan.date}
                   mealPlanId={weeklyMealPlan.id}
                 />
               </Stack>

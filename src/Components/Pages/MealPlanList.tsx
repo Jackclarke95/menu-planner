@@ -20,8 +20,10 @@ const MealPlanList = () => {
                 key={weeklyMealPlan.id}
                 styles={{ root: { boxShadow: Depths.depth8, padding: 10 } }}
               >
-                <Text onClick={() => navigate(`/meal-plans/${weeklyMealPlan.id}`)}>
-                  {new Date(weeklyMealPlan.date).toDateString()}
+                <Text
+                  onClick={() => navigate(`/meal-plans/${weeklyMealPlan.id}`)}
+                >
+                  {new Date(weeklyMealPlan.startDate).toDateString()}
                 </Text>
               </Stack>
             );
